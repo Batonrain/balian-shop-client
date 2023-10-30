@@ -19,7 +19,7 @@ jobs:
         script: |
           cd /
           cd /projects/balian-shop/client/balian-shop-client
-          rm rf dist/*
+          rm rf -f dist/*
           git pull origin master
           npm install
           ng build
