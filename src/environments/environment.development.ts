@@ -1,3 +1,3 @@
 export const environment = {
-    SERVICE_API:'https://localhost:7043/api/',
+    SERVICE_API:'https://balianshop.com:8000/api/',
 };
