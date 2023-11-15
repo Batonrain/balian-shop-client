@@ -13,7 +13,6 @@ export class OilCardComponent {
 
   public getPictureUrl(pictureUrl: string): string {
     if (pictureUrl != '') {
-      console.log(pictureUrl)
       return pictureUrl;
     }
     return this.defaultPicture;

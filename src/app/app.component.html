@@ -1,4 +1,15 @@
-<div class="inline" *ngFor="let card of cards">
-    <app-oil-card [item]="card"></app-oil-card>
+<div>
+    <nav>
+        <div class="user-info">
+          <img src="https://api.crm.unicorngo.ru/api/customer-bot/photo/863966?w=96&q=75" alt="User Avatar" class="user-avatar">
+          <div class="user-details">
+            <div class="user-name">{{user?.first_name}} {{user?.last_name}}<span class="arrow"> ></span></div>
+            <div class="user-status">{{user?.id}}</div>
+          </div>
+        </div>
+      </nav>
+      
+    <div class="inline" *ngFor="let card of cards">
+        <app-oil-card [item]="card"></app-oil-card>
+    </div>
 </div>
-

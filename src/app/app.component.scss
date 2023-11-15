@@ -4,3 +4,46 @@ div.inline {
 }
 
 .clearBoth { clear:both; }
+
+nav {
+    /* Assuming your nav is full width */
+    position: relative;
+    height: 50px; /* Or the height you want for your nav */
+    background: #333; /* Or any color you want for the nav background */
+  }
+  
+  .user-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding: 10px; /* Adjust the padding as needed */
+  }
+  
+  .user-avatar {
+    width: 40px; /* Adjust the size as needed */
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .user-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user-name {
+    font-weight: bold;
+    color: white; /* Adjust text color as needed */
+  }
+  
+  .arrow {
+    display: inline;
+  }
+  
+  .user-status {
+    font-size: 0.8em;
+    color: grey; /* Adjust text color as needed */
+  }
+  
