@@ -15,15 +15,8 @@ export class AppComponent implements OnInit {
   constructor(private notionService: NotionService) { }
 
   ngOnInit(): void {
-    localStorage.setItem("user", JSON.stringify(this.parseTelegramInfo(window.location.href)));
+    this.parseTelegramInfo(window.location.href);
     this.getCards();
-    this.getUser();
-  }
-
-  public getUser(): void {
-    console.log(JSON.parse(localStorage.getItem('user') ?? ''))
-    this.user = JSON.parse(localStorage.getItem('user') ?? '');
-    console.log(this.user);
   }
 
   private parseTelegramInfo(url: string) {
@@ -34,9 +27,13 @@ export class AppComponent implements OnInit {
     const params = new URLSearchParams(hash);
 
     let user = params.get('user') ?? '';
+    console.log('user', user);
     const decodedStr = decodeURIComponent(user);
-    const jsonObj = JSON.parse(decodedStr);
-    return jsonObj;
+    console.log('decodedStr', decodedStr);
+    this.user = JSON.parse(decodedStr);
+    console.log('this.user', this.user);
+    
+    localStorage.setItem("user", JSON.stringify(this.user));
   }
 
   private getCards(): void {
