@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
 
     const hash = url.substring(hashIndex + 1);
     console.log('hash', hash);
+    console.log('decodeURIComponent', decodeURIComponent(hash));
     const params = new URLSearchParams(hash);
     console.log('params', params);
 
