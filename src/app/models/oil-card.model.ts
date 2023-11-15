@@ -6,4 +6,5 @@ export interface OilCard {
     actualCount: number;
     brand: string;
     url: string;
+    picture: string;
 }

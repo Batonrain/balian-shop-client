@@ -1,6 +1,7 @@
 .example-card {
-    max-width: 400px;
-    min-height: auto;
+    width: 400px;
+    // min-height: 494px;
+    height: 494px;
 }
 
 .example-header-image {
@@ -11,3 +12,26 @@
 .mat-mdc-card {
     --mdc-elevated-card-container-color: #996161 !important;
 }
+.mat-card-title {
+    min-width: 368px;
+    min-height: 64px;
+}
+.mat-card-subtitle {
+    min-width: 368px;
+    min-height: 22px;
+}
+
+//400x320
+.oil-img {
+    min-height: 200px;
+    height: 320px;
+    width: 400px;
+}
+
+.product-image {
+    max-width: 100%; /* Максимальная ширина изображения - 100% ширины карточки */
+    max-height: 320px;
+    height: auto; /* Высота автоматически адаптируется к ширине, сохраняя пропорции */
+    display: block; /* Устраняет возможные проблемы с выравниванием и отступами */
+    object-fit: contain; /* Подгоняет изображение по контейнеру, сохраняя пропорции */
+  }

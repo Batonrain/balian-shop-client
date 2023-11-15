@@ -1,9 +1,9 @@
 <mat-card class="example-card">
     <mat-card-header>
-      <mat-card-title>{{item.name}}</mat-card-title>
-      <mat-card-subtitle>{{item.brand}}</mat-card-subtitle>
+      <mat-card-title class="mat-card-title">{{item.name}}</mat-card-title>
+      <mat-card-subtitle class="mat-card-subtitle">{{item.brand}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <img mat-card-image class="product-image" [src]="getPictureUrl(item.picture)" alt="{{item.name}}">
     <mat-card-content>
       <p *ngIf="item.price10ml != ''">Price for 10ml: {{item.price10ml}}</p>
       <p *ngIf="item.price100ml != ''">Price for 100ml: {{item.price100ml}}</p>
