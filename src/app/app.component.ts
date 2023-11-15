@@ -24,17 +24,11 @@ export class AppComponent implements OnInit {
     if (hashIndex === -1) return;
 
     const hash = url.substring(hashIndex + 1);
-    console.log('hash', hash);
-    console.log('decodeURIComponent', decodeURIComponent(hash));
     const params = new URLSearchParams(decodeURIComponent(hash));
-    console.log('params', params);
 
     let user = params.get('user') ?? '';
-    console.log('user', user);
     const decodedStr = decodeURIComponent(user);
-    console.log('decodedStr', decodedStr);
     this.user = JSON.parse(decodedStr);
-    console.log('this.user', this.user);
     
     localStorage.setItem("user", JSON.stringify(this.user));
   }
