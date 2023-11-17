@@ -10,7 +10,7 @@
       <p *ngIf="item.price1l != ''">Price for 1l: {{item.price1l}}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>PAY</button>
+      <button mat-button (click)="addItemToCart(item)">PAY</button>
       <button mat-button>DETAILS</button>
     </mat-card-actions>
   </mat-card>

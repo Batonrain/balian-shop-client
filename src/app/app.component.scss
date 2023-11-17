@@ -1,49 +1,50 @@
-div.inline { 
-    float:left; 
-    padding: 20px;
+div.inline {
+  float: left;
+  padding: 20px;
 }
 
-.clearBoth { clear:both; }
+.clearBoth {
+  clear: both;
+}
 
 nav {
-    /* Assuming your nav is full width */
-    position: relative;
-    height: 50px; /* Or the height you want for your nav */
-    background: #333; /* Or any color you want for the nav background */
-  }
-  
-  .user-info {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    padding: 10px; /* Adjust the padding as needed */
-  }
-  
-  .user-avatar {
-    width: 40px; /* Adjust the size as needed */
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .user-details {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .user-name {
-    font-weight: bold;
-    color: white; /* Adjust text color as needed */
-  }
-  
-  .arrow {
-    display: inline;
-  }
-  
-  .user-status {
-    font-size: 0.8em;
-    color: grey; /* Adjust text color as needed */
-  }
-  
+  display: flex; /* Включаем Flexbox */
+  justify-content: space-between; /* Распределяем пространство между элементами */
+  align-items: center; /* Выравниваем элементы по центру по вертикали */
+  padding: 10px; /* Добавляем немного отступов */
+  height: 60px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center; /* Выравниваем содержимое user-info по центру по вертикали */
+}
+
+.user-avatar {
+  border-radius: 50%; /* Делаем аватар круглым */
+  margin-right: 10px; /* Добавляем немного места между аватаром и текстом */
+  width: 60px; /* Задаем фиксированный размер для аватара */
+  height: 60px; /* Задаем фиксированный размер для аватара */
+}
+
+/* Ваши стили для user-name, user-status и других элементов */
+
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: bold;
+  /* Adjust text color as needed */
+}
+
+.arrow {
+  display: inline;
+}
+
+.user-status {
+  font-size: 0.8em;
+  /* Adjust text color as needed */
+}

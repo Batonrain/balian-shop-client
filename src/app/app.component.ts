@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NotionService } from 'src/services/notion.service';
 import { OilCard } from './models/oil-card.model';
 import { UserInfo } from './models/user.model'
+import { CartService } from 'src/services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -12,14 +13,18 @@ export class AppComponent implements OnInit {
   title = 'Baliana Oil';
   public cards: OilCard[] = [];
   public user: any | undefined;
-  constructor(private notionService: NotionService) { }
+  totalQuantity$ = this.cartService.getTotalQuantity();
+
+  constructor(
+    private notionService: NotionService,
+    private cartService: CartService) { }
 
   ngOnInit(): void {
     this.parseTelegramInfo(window.location.href);
     this.getCards();
   }
 
-  private parseTelegramInfo(url: string) {
+  private parseTelegramInfo(url: string): void {
     const hashIndex = url.indexOf('#');
     if (hashIndex === -1) return;
 
@@ -29,7 +34,7 @@ export class AppComponent implements OnInit {
     let user = params.get('user') ?? '';
     const decodedStr = decodeURIComponent(user);
     this.user = JSON.parse(decodedStr);
-    
+
     localStorage.setItem("user", JSON.stringify(this.user));
   }
 

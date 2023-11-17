@@ -6,9 +6,12 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 // Angular material
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// Local components
 import { OilCardComponent } from './card/oil-card/oil-card.component';
 
 @NgModule({
@@ -22,6 +25,8 @@ import { OilCardComponent } from './card/oil-card/oil-card.component';
     HttpClientModule,
     MatCardModule,
     MatButtonModule,
+    MatIconModule,
+    MatBadgeModule,
     BrowserAnimationsModule,
   ],
   providers: [],
