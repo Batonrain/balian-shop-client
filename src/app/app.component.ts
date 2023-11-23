@@ -3,6 +3,8 @@ import { NotionService } from 'src/services/notion.service';
 import { OilCard } from './models/oil-card.model';
 import { UserInfo } from './models/user.model'
 import { CartService } from 'src/services/cart.service';
+import { WalletPayService } from 'src/services/wallet-pay.service';
+import { WalletPayCreateOrderRequest } from './models/wallet-pay-create-rder-request.model';
 
 @Component({
   selector: 'app-root',
@@ -17,13 +19,14 @@ export class AppComponent implements OnInit {
 
   constructor(
     private notionService: NotionService,
-    private cartService: CartService) { }
+    private cartService: CartService,
+    private paymentService: WalletPayService) { }
 
   ngOnInit(): void {
     this.parseTelegramInfo(window.location.href);
     this.getCards();
   }
-
+  
   private parseTelegramInfo(url: string): void {
     const hashIndex = url.indexOf('#');
     if (hashIndex === -1) return;
