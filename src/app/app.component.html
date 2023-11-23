@@ -9,13 +9,11 @@
       </div>
     </div>
     <div>
-      <button mat-raised-button color="primary" matBadge="{{ totalQuantity$ | async }}" matBadgePosition="before" matBadgeColor="accent">
+      <button mat-raised-button (click)="router.navigate(['/basket']);" color="primary" matBadge="{{ totalQuantity$ | async }}" matBadgePosition="before" matBadgeColor="accent">
         Корзина
       </button>
     </div>
   </nav>
 
-  <div class="inline" *ngFor="let card of cards">
-    <app-oil-card [item]="card" [user]="user"></app-oil-card>
-  </div>
+  <router-outlet></router-outlet>
 </div>

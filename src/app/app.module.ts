@@ -13,11 +13,15 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Local components
 import { OilCardComponent } from './card/oil-card/oil-card.component';
+import { ShoppingCartComponent } from './card/shopping-cart/shopping-cart.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OilCardComponent
+    OilCardComponent,
+    ShoppingCartComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,

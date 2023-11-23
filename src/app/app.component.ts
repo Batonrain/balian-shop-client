@@ -5,6 +5,7 @@ import { UserInfo } from './models/user.model'
 import { CartService } from 'src/services/cart.service';
 import { WalletPayService } from 'src/services/wallet-pay.service';
 import { WalletPayCreateOrderRequest } from './models/wallet-pay-create-rder-request.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,18 +14,18 @@ import { WalletPayCreateOrderRequest } from './models/wallet-pay-create-rder-req
 })
 export class AppComponent implements OnInit {
   title = 'Baliana Oil';
-  public cards: OilCard[] = [];
+  
   public user: any | undefined;
   totalQuantity$ = this.cartService.getTotalQuantity();
 
   constructor(
     private notionService: NotionService,
     private cartService: CartService,
-    private paymentService: WalletPayService) { }
+    private paymentService: WalletPayService,
+    public router: Router) { }
 
   ngOnInit(): void {
     this.parseTelegramInfo(window.location.href);
-    this.getCards();
   }
   
   private parseTelegramInfo(url: string): void {
@@ -39,17 +40,5 @@ export class AppComponent implements OnInit {
     this.user = JSON.parse(decodedStr);
 
     localStorage.setItem("user", JSON.stringify(this.user));
-  }
-
-  private getCards(): void {
-    this.notionService.getCards().subscribe({
-      next: result => {
-        this.cards = result;
-      },
-      error: err => {
-
-        console.log(err);
-      }
-    })
   }
 }
