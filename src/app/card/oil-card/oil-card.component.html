@@ -1,16 +1,14 @@
 <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title class="mat-card-title">{{item.name}}</mat-card-title>
-      <mat-card-subtitle class="mat-card-subtitle">{{item.brand}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image class="product-image" [src]="getPictureUrl(item.picture)" alt="{{item.name}}">
-    <mat-card-content>
-      <p *ngIf="item.price10ml != ''">Price for 10ml: {{item.price10ml}}</p>
-      <p *ngIf="item.price100ml != ''">Price for 100ml: {{item.price100ml}}</p>
-      <p *ngIf="item.price1l != ''">Price for 1l: {{item.price1l}}</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button (click)="addItemToCart(item)">PAY</button>
-      <button mat-button>DETAILS</button>
-    </mat-card-actions>
-  </mat-card>
+  <mat-card-header>
+    <mat-card-title class="mat-card-title">{{item.name}}</mat-card-title>
+    <mat-card-subtitle class="mat-card-subtitle">{{item.brand}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image class="product-image" [src]="getPictureUrl(item.picture)" alt="{{item.name}}">
+  <mat-card-content>
+    <p>Price: {{item.price}} TAN | Size: {{item.size}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="addItemToCart(item)">PAY</button>
+    <button mat-button>DETAILS</button>
+  </mat-card-actions>
+</mat-card>

@@ -26,6 +26,7 @@ export class MainPageComponent implements OnInit {
     this.notionService.getCards().subscribe({
       next: result => {
         this.cards = result;
+        console.log(result);
       },
       error: err => {
 

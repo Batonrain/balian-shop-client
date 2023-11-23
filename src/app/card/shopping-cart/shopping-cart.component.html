@@ -1,18 +1,17 @@
-<div class="cart-container">
-    <div class="cart-item">
-        <img src="image_product1.jpg" alt="Product 1" class="product-image">
-        <div class="product-info">
-            <h3 class="product-title">Название продукта 1</h3>
-            <p class="product-description">Описание продукта 1...</p>
-            <p class="product-price">Цена: $100</p>
-        </div>
-    </div>
-    <div class="cart-item">
-        <img src="image_product1.jpg" alt="Product 1" class="product-image">
-        <div class="product-info">
-            <h3 class="product-title">Название продукта 1</h3>
-            <p class="product-description">Описание продукта 1...</p>
-            <p class="product-price">Цена: $100</p>
+<div *ngIf="cartItems.length > 0; else emptyCart">
+    <div class="cart-container">
+        <div class="cart-item" *ngFor="let item of cartItems">
+            <img src="image_product1.jpg" alt="{{item.product.name}}" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">{{item.product.name}}</h3>
+                <p class="product-description">Size: {{item.product.size}}</p>
+                <p class="product-price">Price: {{item.product.price}} TAN</p>
+            </div>
         </div>
     </div>
 </div>
+
+
+<ng-template #emptyCart>
+    <p>Корзина пуста.</p>
+</ng-template>
