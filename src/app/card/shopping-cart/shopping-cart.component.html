@@ -9,8 +9,8 @@
                 <p class="product-price">Price: {{item.product.price}} USDT</p>
             </div>
         </div>
-        <button mat-raised-button color="primary" (click)="payOrders()">
-            Оплатить
+        <button mat-raised-button color="primary" (click)="payOrders()" *ngIf="showFormInvoiceButton">
+            Купить
         </button>
     </div>
 </div>
@@ -18,3 +18,5 @@
 <ng-template #emptyCart>
     <p>Корзина пуста.</p>
 </ng-template>
+
+<app-payment-button *ngIf="paymentUrl" [paymentUrl]="paymentUrl"></app-payment-button>

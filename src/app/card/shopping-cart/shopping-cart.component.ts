@@ -11,6 +11,8 @@ import { WalletPayService } from 'src/services/wallet-pay.service';
 })
 export class ShoppingCartComponent implements OnInit {
   cartItems: CartItem[] = [];
+  paymentUrl: string = '';
+  showFormInvoiceButton: boolean = true;
 
   constructor(
     private cartService: CartService,
@@ -43,6 +45,8 @@ export class ShoppingCartComponent implements OnInit {
     this.paymentService.createPayment(model).subscribe({
       next: result => {
         console.log("createPayment", result);
+        this.paymentUrl = result.data.payLink;
+        this.showFormInvoiceButton = false;
       },
       error: err => {
         console.log("createPayment err", err);

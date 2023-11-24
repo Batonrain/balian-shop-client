@@ -15,13 +15,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OilCardComponent } from './card/oil-card/oil-card.component';
 import { ShoppingCartComponent } from './card/shopping-cart/shopping-cart.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { PaymentButtonComponent } from './card/payment-button/payment-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OilCardComponent,
     ShoppingCartComponent,
-    MainPageComponent
+    MainPageComponent,
+    PaymentButtonComponent
   ],
   imports: [
     BrowserModule,
