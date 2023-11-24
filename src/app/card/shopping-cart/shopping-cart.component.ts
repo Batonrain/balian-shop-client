@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/models/cart-item.model';
+import { PurchaseItem, WalletPayCreateOrderRequest } from 'src/app/models/wallet-pay-create-rder-request.model';
 import { CartService } from 'src/services/cart.service';
+import { WalletPayService } from 'src/services/wallet-pay.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -10,7 +12,9 @@ import { CartService } from 'src/services/cart.service';
 export class ShoppingCartComponent implements OnInit {
   cartItems: CartItem[] = [];
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private paymentService: WalletPayService) { }
 
   ngOnInit() {
     this.cartService.items$.subscribe(items => {
@@ -19,4 +23,30 @@ export class ShoppingCartComponent implements OnInit {
     });
   }
 
+  public payOrders(): void {
+    let defaultUser = 863966;
+    let items: PurchaseItem[] = []
+    this.cartItems.forEach(item => {
+      let purchaseItem: PurchaseItem = {
+        Amount: item.product.price,
+        Count: item.quantity,
+        ItemId: item.product.id,
+        Description: item.product.name,
+      };
+      items.push(purchaseItem);
+    });
+    let model: WalletPayCreateOrderRequest = {
+      userId: defaultUser,
+      purchaseItems: items,
+    }
+    console.log("payOrders", model);
+    this.paymentService.createPayment(model).subscribe({
+      next: result => {
+        console.log("createPayment", result);
+      },
+      error: err => {
+        console.log("createPayment err", err);
+      }
+    })
+  }
 }
