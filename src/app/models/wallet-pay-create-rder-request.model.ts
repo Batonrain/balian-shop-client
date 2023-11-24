@@ -1,5 +1,6 @@
 export interface WalletPayCreateOrderRequest{
     userId:number;
+    username: string;
     purchaseItems: PurchaseItem[];
 }
 

@@ -26,7 +26,13 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   public payOrders(): void {
-    let defaultUser = 863966;
+    //let userData = 863966;
+    let userData = localStorage.getItem('user') ?? "";
+    console.log(userData)
+    if (userData === "") {
+      return;
+    }
+    let user = JSON.parse(userData);
     let items: PurchaseItem[] = []
     this.cartItems.forEach(item => {
       let purchaseItem: PurchaseItem = {
@@ -38,7 +44,8 @@ export class ShoppingCartComponent implements OnInit {
       items.push(purchaseItem);
     });
     let model: WalletPayCreateOrderRequest = {
-      userId: defaultUser,
+      userId: user.id,
+      username: user.username,
       purchaseItems: items,
     }
     console.log("payOrders", model);
