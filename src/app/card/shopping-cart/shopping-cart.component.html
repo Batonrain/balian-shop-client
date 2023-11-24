@@ -1,13 +1,17 @@
 <div *ngIf="cartItems.length > 0; else emptyCart">
     <div class="cart-container">
         <div class="cart-item" *ngFor="let item of cartItems">
-            <img src="image_product1.jpg" alt="{{item.product.name}}" class="product-image">
+            <img src="/assets/default-oil.jpg" alt="{{item.product.name}}" class="product-image">
             <div class="product-info">
                 <h3 class="product-title">{{item.product.name}}</h3>
                 <p class="product-description">Size: {{item.product.size}}</p>
-                <p class="product-price">Price: {{item.product.price}} TAN</p>
+                <p class="product-description">Quantity: {{item.quantity}}</p>
+                <p class="product-price">Price: {{item.product.price}} USDT</p>
             </div>
         </div>
+        <button mat-raised-button color="primary">
+            Оплатить
+        </button>
     </div>
 </div>
 
