@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     public router: Router) { }
 
   ngOnInit(): void {
-    this.parseTelegramInfo(window.location.href);
+    //this.parseTelegramInfo(window.location.href);
   }
   
   private parseTelegramInfo(url: string): void {
