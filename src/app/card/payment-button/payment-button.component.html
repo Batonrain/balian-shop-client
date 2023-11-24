@@ -1,4 +1,6 @@
 <!-- payment-button.component.html -->
-<div class="payment-button-container" *ngIf="paymentUrl">
+<!-- <div class="payment-button-container" *ngIf="paymentUrl">
     <a href="{{ paymentUrl }}" target="_blank" class="payment-button">Оплатить</a>
-</div>
+</div> -->
+
+<a *ngIf="paymentUrl" href="{{ paymentUrl }}" target="_blank" class="button-telegram">Оплатить</a>

@@ -18,3 +18,27 @@
     border-radius: 5px;
     font-size: 16px;
 }
+
+.button-telegram {
+    position: fixed; /* Фиксированное позиционирование относительно вьюпорта */
+    left: 0; /* Выравнивание по левому краю */
+    right: 0; /* Выравнивание по правому краю */
+    bottom: 0; /* Позиционирование внизу */
+    width: calc(100% - 20px); /* Ширина с учетом отступов */
+    margin: 0 10px; /* Отступы справа и слева */
+    padding: 10px 20px; /* Внутренние отступы */
+    background-color: #0088cc; /* Цвет фона */
+    color: white; /* Цвет текста */
+    text-align: center; /* Выравнивание текста по центру */
+    border-radius: 5px; /* Скругленные углы */
+    border: none; /* Без границ */
+    font-size: 16px; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    cursor: pointer; /* Тип курсора */
+    transition: background-color 0.3s; /* Анимация при наведении */
+    z-index: 1000; /* Убедитесь, что кнопка будет над другими элементами */
+}
+
+.button-telegram:hover {
+    background-color: #006699; /* Цвет при наведении */
+}
