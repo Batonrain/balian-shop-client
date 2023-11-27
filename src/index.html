@@ -12,14 +12,14 @@
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script>
     console.log("web_app_expand START")
-    window.TelegramWebviewProxy.postEvent('web_app_expand', {})
+    window.external.notify(JSON.stringify({eventType: 'web_app_expand', eventData: {}}));
   </script>
 </head>
 <body class="mat-typography">
   <app-root></app-root>
   <script>
     console.log("web_app_expand END")
-    window.TelegramWebviewProxy.postEvent('web_app_expand', {})
+    window.external.notify(JSON.stringify({eventType: 'web_app_expand', eventData: {}}));
   </script>
 </body>
 </html>
