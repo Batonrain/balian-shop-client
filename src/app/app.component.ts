@@ -6,6 +6,7 @@ import { CartService } from 'src/services/cart.service';
 import { WalletPayService } from 'src/services/wallet-pay.service';
 import { WalletPayCreateOrderRequest } from './models/wallet-pay-create-rder-request.model';
 import { Router } from '@angular/router';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -14,18 +15,21 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'Baliana Oil';
+  profileImageBase64: string = '';
   
   public user: any | undefined;
   totalQuantity$ = this.cartService.getTotalQuantity();
 
   constructor(
-    private notionService: NotionService,
     private cartService: CartService,
-    private paymentService: WalletPayService,
+    private userService: UserService,
     public router: Router) { }
 
   ngOnInit(): void {
     this.parseTelegramInfo(window.location.href);
+    this.userService.getAvatar(this.userService.getUserId()).subscribe(base64Image => {
+      this.profileImageBase64 = 'data:image/jpeg;base64,' + base64Image.photo;
+  });
   }
   
   private parseTelegramInfo(url: string): void {

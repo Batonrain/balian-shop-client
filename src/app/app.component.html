@@ -1,7 +1,7 @@
 <div>
   <nav>
     <div class="user-info">
-      <img src="https://api.crm.unicorngo.ru/api/customer-bot/photo/863966?w=96&q=75" alt="User Avatar"
+      <img [src]="profileImageBase64" alt="User Avatar"
         class="user-avatar">
       <div class="user-details">
         <div class="user-name">{{user?.first_name}} {{user?.last_name}}<span class="arrow"> ></span></div>
