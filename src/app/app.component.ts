@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NotionService } from 'src/services/notion.service';
-import { OilCard } from './models/oil-card.model';
-import { UserInfo } from './models/user.model'
 import { CartService } from 'src/services/cart.service';
-import { WalletPayService } from 'src/services/wallet-pay.service';
-import { WalletPayCreateOrderRequest } from './models/wallet-pay-create-rder-request.model';
 import { Router } from '@angular/router';
 import { UserService } from 'src/services/user.service';
 
