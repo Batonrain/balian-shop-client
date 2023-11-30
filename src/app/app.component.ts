@@ -11,7 +11,7 @@ import { UserService } from 'src/services/user.service';
 export class AppComponent implements OnInit {
   title = 'Baliana Oil';
   profileImageBase64: string = '';
-  
+
   public user: any | undefined;
   totalQuantity$ = this.cartService.getTotalQuantity();
 
@@ -24,9 +24,10 @@ export class AppComponent implements OnInit {
     this.parseTelegramInfo(window.location.href);
     this.userService.getAvatar(this.userService.getUserId()).subscribe(base64Image => {
       this.profileImageBase64 = 'data:image/jpeg;base64,' + base64Image.photo;
-  });
+    });
+    this.getUserFromStorage();
   }
-  
+
   private parseTelegramInfo(url: string): void {
     const hashIndex = url.indexOf('#');
     if (hashIndex === -1) return;
@@ -39,5 +40,14 @@ export class AppComponent implements OnInit {
     this.user = JSON.parse(decodedStr);
 
     localStorage.setItem("user", JSON.stringify(this.user));
+  }
+
+  private getUserFromStorage() {
+    let userData = localStorage.getItem('user') ?? "";
+    console.log(userData)
+    if (userData === "") {
+      return;
+    }
+    this.user = JSON.parse(userData);
   }
 }

@@ -10,13 +10,13 @@
             </div>
         </div>
         <button mat-raised-button color="primary" (click)="payOrders()" *ngIf="showFormInvoiceButton">
-            Купить
+            Create payment
         </button>
     </div>
 </div>
 
 <ng-template #emptyCart>
-    <p>Корзина пуста.</p>
+    <p>Basket is empty</p>
 </ng-template>
 
 <app-payment-button *ngIf="paymentUrl" [paymentUrl]="paymentUrl"></app-payment-button>
