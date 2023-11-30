@@ -15,6 +15,6 @@ export class NotionService {
 
   // Метод для получения списка баз данных
   getCards(): Observable<OilCard[]> {
-    return this.httpClient.get<OilCard[]>(`${this.BASE_URL}/getCards`);
+    return this.httpClient.get<OilCard[]>(`${this.BASE_URL}/get-cards`);
   }
 }

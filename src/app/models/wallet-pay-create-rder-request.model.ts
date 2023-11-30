@@ -5,7 +5,8 @@ export interface WalletPayCreateOrderRequest{
 }
 
 export interface PurchaseItem {
-    ItemId: string;
+    Id: string;
+    Name: string;
     Amount: string;
     Count: number;
     Description: string;

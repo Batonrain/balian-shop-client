@@ -38,7 +38,8 @@ export class ShoppingCartComponent implements OnInit {
       let purchaseItem: PurchaseItem = {
         Amount: item.product.price,
         Count: item.quantity,
-        ItemId: item.product.id,
+        Id: item.product.id,
+        Name: item.product.name,
         Description: item.product.name,
       };
       items.push(purchaseItem);
@@ -54,6 +55,7 @@ export class ShoppingCartComponent implements OnInit {
         console.log("createPayment", result);
         this.paymentUrl = result.data.payLink;
         this.showFormInvoiceButton = false;
+        localStorage.removeItem('cart');
       },
       error: err => {
         console.log("createPayment err", err);
