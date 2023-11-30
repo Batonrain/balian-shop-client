@@ -53,7 +53,7 @@ export class ShoppingCartComponent implements OnInit {
     this.paymentService.createPayment(model).subscribe({
       next: result => {
         console.log("createPayment", result);
-        this.paymentUrl = result.data.payLink;
+        this.paymentUrl = result.payLink;
         this.showFormInvoiceButton = false;
         localStorage.removeItem('cart');
       },
