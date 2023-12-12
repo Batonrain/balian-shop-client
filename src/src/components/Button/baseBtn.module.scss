@@ -1,0 +1,8 @@
+@import "@scss/_variables.scss";
+
+.btn { 
+    color: $white;
+    background-color: $black;
+    font-size: $buttonText;
+    border: 0;
+}

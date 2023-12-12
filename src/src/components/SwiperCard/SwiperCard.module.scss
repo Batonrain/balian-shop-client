@@ -1,0 +1,53 @@
+@import "@scss/_variables.scss";
+
+.swiper {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+    width: 100%;
+    position: relative;
+
+    &__bg {
+        text-align: center;
+        position: absolute;
+        z-index: -1;
+        img {
+            width: 95%;
+            max-height: 200px;
+            max-width: 352px;
+        }
+    }
+
+    &__foreground {
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+    }
+
+    &__group_btn {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 15px;
+        margin-left: 74px;
+
+        svg {
+            color: $white;
+            height: 28px;
+        }
+    }
+
+    &__button {
+        width: 51px;
+        height: 51px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-right: 4px;
+    }
+
+    &__flask {
+        margin-top: -30px;
+    }
+}

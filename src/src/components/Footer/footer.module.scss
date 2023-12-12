@@ -1,0 +1,42 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-top: 1px solid #AAA;
+    width: 100%;
+
+    position: absolute;
+    bottom: 0;
+
+    &__btn {
+
+        margin-top: 20px;
+        margin-bottom: 30px;
+
+        &:nth-child(1) {
+            padding-right: 40px;
+        }
+
+        &:nth-child(2n) {
+            padding-left: 40px;
+            padding-right: 40px;
+
+            border-left: 1px solid #AAA;
+            border-right: 1px solid #AAA;
+        }
+
+        &:nth-child(3n) {
+            padding-left: 40px;
+        }
+
+        
+        svg {
+            width: 41px;
+            height: 41px;
+        }
+
+        background-color: transparent;
+        color: black;
+        border: none;
+    }
+}
