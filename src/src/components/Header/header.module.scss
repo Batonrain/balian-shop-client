@@ -1,0 +1,26 @@
+.header {
+    height: 40px;
+    margin: 30px 20px 0 20px;
+
+    display: flex;
+    align-items: center;
+
+    &__text {
+        font-weight: 400;
+        letter-spacing: 0.2em;
+        font-size: 25px;
+        margin-left: 15px;
+    }
+
+    &__language {
+        margin-left: auto;
+    }
+
+    &__img{
+        float: right;
+        border-radius: 23px;
+        width: 40px;
+        height: 40px;
+        margin-left: 40px;
+    }
+}
