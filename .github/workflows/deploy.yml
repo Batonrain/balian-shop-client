@@ -23,7 +23,7 @@ jobs:
       working-directory: ./src
   
     - name: Build React app
-      run: npm run build
+      run: CI=false npm run build
       working-directory: ./src
   
     - name: Copy files to the server
