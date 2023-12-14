@@ -5,8 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 library.add(fas);
 
-export default function Icon({icon = ""}) {
+export default function Icon({icon = "", img = false, src = '', alt = ''}) {
   return (
-    <FontAwesomeIcon icon={icon} />
+    <>
+      {
+        img ? <img src={src} alt={alt} /> : <FontAwesomeIcon icon={icon} />
+      } 
+    </>
   )
 }

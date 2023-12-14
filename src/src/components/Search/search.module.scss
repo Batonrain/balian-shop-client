@@ -1,0 +1,53 @@
+@import "@scss/_variables.scss";
+
+.search {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+
+    &__container{
+        margin: 0 20px;
+        max-width: 350px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid $borderInputColor;
+    }   
+
+    &__input {
+        width: 70%;
+        border: 0;
+        padding: 14px;
+        padding-right: 0;
+        
+        &:focus {
+            outline: none;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $black;
+            font-size: $fsAverage;
+            font-weight: $textFontWeight;
+        }
+    }
+
+    &__btn {
+
+        display: flex;
+        flex-direction: row;
+        margin-right: 20px;
+        
+        button {
+            background-color: $white;
+        }
+
+        svg {
+            color: $black;
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

@@ -9,11 +9,11 @@ export default function Footer() {
     const footerBtn = [
         {
             className: ft.footer__btn,
-            content:  <img src={Send} alt="Send" /> 
+            content: <Icon src={Send} alt="Send" img="true" />
         },
         {
             className: ft.footer__btn,
-            content: <img src={User} alt="User" />  
+            content: <Icon src={User} alt="User" img="true" />
         },
         {
             className: ft.footer__btn,

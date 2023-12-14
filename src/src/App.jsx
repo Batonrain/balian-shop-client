@@ -1,7 +1,8 @@
 import './App.scss';
 import { useEffect } from 'react';
 import { useTelegram } from '@hooks/useTelegram';
-import MainPage from '@components/MainPage';
+import MainPage from '@pages/MainPage';
+import Header from '@components/Header';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <MainPage />
     </div>
   );

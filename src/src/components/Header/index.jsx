@@ -2,16 +2,24 @@ import React from 'react';
 import styles from './header.module.scss';
 import Logo from '@img/logo.svg';
 import { useTelegram } from '@hooks/useTelegram';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Icon from '@components/Icon';
+import getUserPhoto from '@api/user';
 
 export default function Header() {
 
   const { tg, user } = useTelegram();
+  const [photo, setPhoto] = useState('');
 
   useEffect(() => {
     tg.ready();
-  }, [tg])
+    
+    getUserPhoto('863966')
+      .then((response) => setPhoto(response.data.photo))
+      .catch(e => console.log(e.toJSON()))
+  }, [])
+
+  console.log(photo)
 
   return (
     <header className={styles.header}>
@@ -21,7 +29,7 @@ export default function Header() {
         <Icon icon="chevron-down" />
       </div>
       <div className={styles.header__img}>
-        <img src={user?.photo_url} alt="Profile" />
+        <img src={`data:image/png;base64,${photo}`} alt="Profile" />
       </div>
     </header>
   )

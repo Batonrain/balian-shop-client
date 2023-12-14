@@ -34,9 +34,4 @@ const SwiperCard = ({imgBg = "", imgFlask = ""}) => {
   )
 }
 
-SwiperCard.propTypes = {
-    imgBg: PropTypes.string,
-    imgFlask: PropTypes.string,
-}
-
 export default SwiperCard
