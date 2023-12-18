@@ -1,22 +1,41 @@
-@import "@scss/_normalize.scss";
-@import "@scss/_variables.scss";
-@import "@scss/_fonts.scss";
+@import '@scss/_normalize.scss';
+@import '@scss/_variables.scss';
+@import '@scss/_fonts.scss';
 
 body {
-  margin: 0;
-  font-family: 'Pragati Narrow',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: $white;
+	margin: 0;
+	font-family: 'Pragati Narrow', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: $white;
+}
+
+button {
+	color: $white;
+	background-color: $black;
+	font-size: $buttonText;
+	border: 0;
 }
 
 p {
-  color: $black;
-  font-weight: $textFontWeight;
+	color: $black;
+	font-weight: $textFontWeight;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+	&::after {
+		content: url("data:image/svg+xml,%3Csvg width='30' height='31' viewBox='0 0 30 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.5 29L3 15.5L16.5 2' stroke='black' stroke-width='4'/%3E%3Cpath d='M16.5 29L3 15.5L16.5 2' stroke='white' stroke-width='4'/%3E%3Cpath d='M16.5 29L3 15.5L16.5 2' stroke='black' stroke-width='2'/%3E%3C/svg%3E") !important;
+	}
+}
+
+.swiper-button-next {
+	&::after {
+		transform: rotate(180deg);
+	}
 }

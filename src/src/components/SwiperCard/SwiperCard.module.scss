@@ -3,18 +3,41 @@
 .swiper {
     display: flex;
     justify-content: center;
-    margin-top: 35px;
-    width: 100%;
+    width: 390px;
     position: relative;
+    margin: 35px auto 0 auto;
 
     &__bg {
         text-align: center;
         position: absolute;
         z-index: -1;
+        width: 352px;
+        max-height: 190px;
+
         img {
             width: 95%;
-            max-height: 200px;
+            max-height: 190px;
             max-width: 352px;
+        }
+    }
+
+    &__slogan {
+
+        display: flex;
+        position: absolute;
+        max-width: 120px;
+        height: 67%;
+        right: 38px;
+        margin-bottom: 4px;
+        align-items: center;
+
+        &_text {
+            color: $black;
+            font-size: $fsNameCard;
+            font-weight: $textFontWeight;
+            background-color: $white;
+            line-height: 30px;
+            margin: auto 0;
         }
     }
 

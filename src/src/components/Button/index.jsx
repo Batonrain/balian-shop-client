@@ -1,26 +1,22 @@
-import React from 'react'
-import btn from './baseBtn.module.scss'
+import React from 'react';
 
 export default function Button({
-    content = '', 
-    className = '', 
-    onClick = () => {}, 
-    type = "button", 
-    disabled = false}) 
-    
-    {
-    let baseClass = btn.btn + " " + className
-
-    return (
-    <>
-        <button
-            className={baseClass}
-            type={type}
-            onClick={onClick}
-            disabled={disabled}
-        >
-            {content}
-        </button>
-    </>
-  )
+	content = '',
+	className = '',
+	onClick = () => {},
+	type = 'button',
+	disabled = false,
+}) {
+	return (
+		<>
+			<button
+				className={className}
+				type={type}
+				onClick={onClick}
+				disabled={disabled}
+			>
+				{content}
+			</button>
+		</>
+	);
 }

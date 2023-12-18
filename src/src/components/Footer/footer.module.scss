@@ -12,15 +12,15 @@
     height: 88px;
 
     &__btn {
-
+        background-color: $white;
         margin-top: 20px;
         margin-bottom: 30px;
 
-        &:nth-child(1) {
+        &_send {
             padding-right: 40px;
         }
 
-        &:nth-child(2n) {
+        &_user {
             padding-left: 40px;
             padding-right: 40px;
 
@@ -28,8 +28,28 @@
             border-right: 1px solid #AAA;
         }
 
-        &:nth-child(3n) {
+        &_shop {
             padding-left: 40px;
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            svg {
+                width: 36px;
+                height: 36px;
+            }
+
+            &-amount {
+                position: absolute;
+                margin: 0;
+                margin-bottom: 12px;
+                margin-left: 5px;
+                color: $white;
+                font-size: $buttonText;
+                font-weight: $textFontWeight; 
+            }
         }
 
         

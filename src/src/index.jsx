@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
-import App from './App';
+import {
+	createBrowserRouter,
+	RouterProvider,
+  } from "react-router-dom";
 import './i18n';
+import { router } from './routes/index';
+
+const rt = createBrowserRouter(router);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		<App />
+		 <RouterProvider router={rt} />
 	</React.StrictMode>
 );

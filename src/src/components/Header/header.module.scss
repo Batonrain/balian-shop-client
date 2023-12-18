@@ -12,6 +12,11 @@
         margin-left: 15px;
     }
 
+    &__link {
+        display: flex;
+        align-items: center;
+    }
+
     &__language {
         margin-left: auto;
     }

@@ -1,15 +1,15 @@
 @import '@scss/_variables.scss';
 
 .cardList {
-    margin: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
-    row-gap: 36px;
-    column-gap: 14px;
     margin-bottom: 100px;
 
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+
     &__item {
-        justify-self: center;
+        margin-bottom: 20px;
+        margin-right: 14px;
     }
 
     &__groups {
@@ -17,32 +17,40 @@
         border: 1px solid $black;
         width: 100%;
 
+        display: flex;
+        justify-content: center;
+
         &_btn { 
             font-size: $buttonText;
             font-weight: $textFontWeight;
             color: $white;
             padding: 12px 0;
 
-            &:nth-child(1n) {
-                padding-left: 10px;
-                padding-right: 10px;
+            &:nth-child(1n) {   
+                width: 50px;
+                padding-left: 1px;
+                padding-right: 1px;
+                text-align: center;
             }
     
             &:nth-child(2n) {
-                padding-left: 10px;
-                padding-right: 10px;
+                width: 70px;
+                padding-left: 1px;
+                padding-right: 1px;
                 border-left: 1px solid #787878;
             }
     
             &:nth-child(3n) {
                 color: $black;
+                width: 48px;
                 background-color: $white;
-                padding-left: 15px;
-                padding-right: 15px;
-
-                -moz-padding-left: 12px;
-                -moz-padding-right: 12px;
             }
         }
+    }
+}
+
+@media (max-width: 385px) {
+    .cardList {
+        justify-content: center;
     }
 }

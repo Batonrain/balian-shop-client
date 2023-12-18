@@ -1,0 +1,171 @@
+@import '@scss/_variables.scss';
+
+.product {
+	width: 95%;
+	max-width: 350px;
+	height: 344px;
+
+	margin: 25px auto 10px auto;
+
+	border: 2px solid $black;
+	background: rgba(217, 217, 217, 0);
+
+	&__price {
+		position: fixed;
+		margin-bottom: 45px;
+		bottom: 0;
+		border: 1px solid black;
+		width: 95%;
+		max-width: 350px;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&_item {
+			padding: 12px 0;
+			&:nth-child(1n) {
+				width: 100%;
+				max-width: 85px;
+				padding-left: 1px;
+				padding-right: 1px;
+				text-align: center;
+			}
+
+			&:nth-child(2n) {
+				max-width: 150px;
+				width: 100%;
+				padding-left: 1px;
+				padding-right: 1px;
+				border-left: 1px solid #787878;
+			}
+
+			&:nth-child(3n) {
+				color: $black;
+				width: 100%;
+				max-width: 115px;
+				background-color: $white;
+				
+			}
+		}
+	}
+
+	&__description {
+		color: #262626;
+		font-size: 24px;
+		font-weight: 400;
+		margin-bottom: 100px;
+		margin-top: 20px;
+	}
+
+	&__btn {
+		border: 1px solid #e3e3e3;
+		width: 46px;
+		height: 46px;
+		background: rgba(217, 217, 217, 0);
+	}
+
+	&__name {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: end;
+
+		margin-top: 10px;
+
+		&_title,
+		&_subtitle {
+			text-transform: uppercase;
+			margin: 0;
+		}
+
+		&_title {
+			font-weight: $textFontWeight;
+			font-size: $fsNameProduct;
+			margin-right: 5px;
+		}
+
+		&_subtitle {
+			font-size: 24px;
+		}
+	}
+
+	&__count {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		max-width: 390px;
+		margin-top: 20px;
+
+		&_ml {
+			max-width: 120px;
+			margin-right: 40px;
+		}
+
+		&_pt {
+			display: flex;
+			align-items: center;
+
+			&-value {
+				font-weight: $textFontWeight;
+				font-size: 24px;
+
+				margin: 0 25px;
+			}
+
+			button {
+				background-color: $white;
+				color: $black;
+			}
+			svg {
+				height: 24px;
+			}
+		}
+	}
+
+	&__group {
+		width: 100%;
+		position: absolute;
+		display: flex;
+		flex-direction: row;
+	}
+
+	&__next,
+	&__prev {
+		background-color: transparent;
+		width: 30px;
+		height: 31px;
+		padding: 0;
+	}
+
+	&__prev {
+		transform: rotate(180deg);
+		margin-right: 100%;
+	}
+
+	&__container {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__bg {
+		width: 100%;
+		max-height: 240px;
+		img {
+			max-height: 240px;
+			width: 100%;
+		}
+	}
+
+	&__flask {
+		img {
+			height: 308px;
+			max-height: 308px;
+			width: 100%;
+			max-width: 120px;
+		}
+	}
+}

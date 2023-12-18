@@ -1,0 +1,34 @@
+.select {
+	position: relative;
+	&__current {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+        button {
+            background-color: transparent;
+            color: black;
+        }
+
+		&_value {
+			font-size: 24px;
+			font-weight: 700;
+			margin: 0;
+			margin-right: 15px;
+		}
+	}
+
+	&__options {
+		position: absolute;
+		max-height: 80px;
+		overflow-y: scroll;
+		width: 100%;
+		z-index: 99;
+		background-color: white;
+	}
+
+	&__option {
+		font-size: 24px;
+		font-weight: 700;
+	}
+}

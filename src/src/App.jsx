@@ -1,23 +1,26 @@
-import './App.scss';
 import { useEffect } from 'react';
 import { useTelegram } from '@hooks/useTelegram';
-import MainPage from '@pages/MainPage';
+import { Outlet, useLocation } from 'react-router-dom';
+import Footer from '@components/Footer';
 import Header from '@components/Header';
 
+import './App.scss';
+
 function App() {
+	const { tg } = useTelegram();
+  const location = useLocation();
 
-  const { tg } = useTelegram()
+	useEffect(() => {
+		tg.ready();
+	}, [tg]);
 
-  useEffect(() => {
-    tg.ready();
-  }, [tg])
-
-  return (
-    <div className="App">
-      <Header />
-      <MainPage />
-    </div>
-  );
+	return (
+		<div className="App">
+			<Header />
+			<Outlet />
+			{location.pathname != '/product' ? <Footer /> : <></>}
+		</div>
+	);
 }
 
 export default App;
