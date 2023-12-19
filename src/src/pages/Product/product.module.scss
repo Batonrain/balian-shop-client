@@ -3,16 +3,19 @@
 .product {
 	width: 95%;
 	max-width: 350px;
-	height: 344px;
+	height: 100%;
 
 	margin: 25px auto 10px auto;
 
-	border: 2px solid $black;
-	background: rgba(217, 217, 217, 0);
+	&__swiper {
+		height: 344px;
+		border: 2px solid $black;
+		background: rgba(217, 217, 217, 0);
+	}
 
 	&__price {
 		position: fixed;
-		margin-bottom: 45px;
+		margin-bottom: 25px;
 		bottom: 0;
 		border: 1px solid black;
 		width: 95%;
@@ -21,6 +24,11 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+
+		-webkit-box-shadow: 0px 30px 10px 11px rgba(255, 255, 255, 0.6);
+		-moz-box-shadow: 0px 30px 10px 11px rgba(255, 255, 255, 0.6);
+		box-shadow: 0px 30px 10px 11px rgba(255, 255, 255, 0.6);
+
 		&_item {
 			padding: 12px 0;
 			&:nth-child(1n) {
@@ -44,7 +52,6 @@
 				width: 100%;
 				max-width: 115px;
 				background-color: $white;
-				
 			}
 		}
 	}
@@ -97,7 +104,6 @@
 		margin-top: 20px;
 
 		&_ml {
-			max-width: 120px;
 			margin-right: 40px;
 		}
 

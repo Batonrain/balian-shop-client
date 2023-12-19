@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SwiperCard from '@components/SwiperCard';
 import Select from '@components/Select';
+import Switches from '@components/Switches';
 import Icon from '@components/Icon';
 import Button from '@components/Button';
 import ButtonGroup from '@components/ButtonGroup';
@@ -35,59 +36,55 @@ export default function Product() {
 	];
 	return (
 		<div className={product.product}>
-			<Swiper
-				loop={true}
-				navigation={true}
-				cssMode={true}
-				modules={[Navigation]}
-				className={product.product__container}
-			>
-				<SwiperSlide>
-					<SwiperCard
-						imgBg={Bg1}
-						classBg={product.product__bg}
-						imgFlask={Flask1}
-						classFlask={product.product__flask}
-						classContainer={product.product__container}
-						btn={false}
-					/>
-				</SwiperSlide>
-				<SwiperSlide>
-					<SwiperCard
-						imgBg={Bg2}
-						classBg={product.product__bg}
-						imgFlask={Flask1}
-						classFlask={product.product__flask}
-						classContainer={product.product__container}
-						btn={false}
-					/>
-				</SwiperSlide>
-			</Swiper>
+			<div className={product.product__swiper}>
+				<Swiper
+					loop={true}
+					navigation={true}
+					cssMode={true}
+					modules={[Navigation]}
+					className={product.product__container}
+				>
+					<SwiperSlide>
+						<SwiperCard
+							imgBg={Bg1}
+							classBg={product.product__bg}
+							imgFlask={Flask1}
+							classFlask={product.product__flask}
+							classContainer={product.product__container}
+							btn={false}
+						/>
+					</SwiperSlide>
+					<SwiperSlide>
+						<SwiperCard
+							imgBg={Bg2}
+							classBg={product.product__bg}
+							imgFlask={Flask1}
+							classFlask={product.product__flask}
+							classContainer={product.product__container}
+							btn={false}
+						/>
+					</SwiperSlide>
+				</Swiper>
+			</div>
 			<div className={product.product__name}>
 				<p className={product.product__name_title}>sandalwood</p>
 				<p className={product.product__name_subtitle}>100% pure</p>
 			</div>
 			<div className={product.product__count}>
-				<div className={product.product__count_ml}>
-					<Select
-						options={options}
-						onSelect={(selectedValue) => console.log(selectedValue)}
-						classNameArrow={product.product__btn}
-					/>
-				</div>
-				<div className={product.product__count_pt}>
-					<Button
-						content={<Icon icon="fas fa-minus" />}
-						onClick={() => (pt > 1 ? setPt(pt - 1) : '')}
-						className={product.product__btn}
-					/>
-					<span className={product['product__count_pt-value']}>{pt} PT</span>
-					<Button
-						content={<Icon icon="fas fa-plus" />}
-						onClick={() => setPt(pt + 1)}
-						className={product.product__btn}
-					/>
-				</div>
+				<Switches
+					options={options}
+					classNameSelect={product.product__count_ml}
+					onSelect={(selectedValue) => console.log(selectedValue)}
+				/>
+				<Switches
+					type="btn"
+					classNameButton={product.product__count_pt}
+					classNameSelect={product.product__count_ml}
+					onClickMinus={() => (pt > 1 ? setPt(pt - 1) : '')}
+					onClickPlus={() => setPt(pt + 1)}
+					pt={pt}
+					onSelect={(selectedValue) => console.log(selectedValue)}
+				/>
 			</div>
 			<div className={product.product__description}>
 				SANDALWOD 100% PURE is your ideal choice for skin care and aromatherapy.

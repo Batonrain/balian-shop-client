@@ -1,0 +1,22 @@
+@import '@scss/_variables.scss';
+
+.switches {
+	&__ml {
+		max-width: 120px;
+	}
+
+	&__btn {
+		border: 1px solid #e3e3e3;
+		width: 46px;
+		height: 46px;
+		background: rgba(217, 217, 217, 0);
+		color: $black;
+	}
+
+    &__value {
+        font-weight: $textFontWeight;
+        font-size: 24px;
+
+        margin: 0 25px;
+    }
+}
