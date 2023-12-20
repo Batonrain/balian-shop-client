@@ -4,11 +4,9 @@ import Switches from '@components/Switches';
 import Card from '@components/Card';
 import ButtonGroup from '@components/ButtonGroup';
 import Modal from '@components/Modal';
+import Input from '@components/Input';
 import Bg1 from '@img/bg1.jpg';
-import Bg2 from '@img/bg2.jpg';
-import Bg3 from '@img/bg3.jpg';
 import TW from '@img/t-white.svg';
-import T from '@img/t.svg';
 import Flask1 from '@img/flask 1.png';
 import basket from './basket.module.scss';
 
@@ -29,7 +27,6 @@ export default function Basket() {
 
 	const openModal = () => {
 		setIsModalOpen(true);
-		console.log(true);
 	};
 
 	const closeModal = () => {
@@ -80,6 +77,7 @@ export default function Basket() {
 					classNameCard={basket.basket__card}
 					bg={Bg1}
 					flask={Flask1}
+					onClickXmark={openModal}
 					cardSimpleNameItem="Test"
 				>
 					<div className={basket.basket__content}>
@@ -99,6 +97,49 @@ export default function Basket() {
 					typeCard="basket"
 					classNameCard={basket.basket__card}
 					bg={Bg1}
+					onClickXmark={openModal}
+					flask={Flask1}
+					cardSimpleNameItem="Test"
+				>
+					<div className={basket.basket__content}>
+						<div className={basket.basket__content_ml}>10 ml</div>
+						<Switches
+							type="btn"
+							classNameButton={basket['basket__switch-btn']}
+							onClickMinus={() => (pt > 1 ? setPt(pt - 1) : '')}
+							onClickPlus={() => setPt(pt + 1)}
+							pt={pt}
+							onSelect={(selectedValue) => console.log(selectedValue)}
+						/>
+						<ButtonGroup buttons={btn} classGroups={basket.basket__groups} />
+					</div>
+				</Card>
+				<Card
+					typeCard="basket"
+					classNameCard={basket.basket__card}
+					bg={Bg1}
+					onClickXmark={openModal}
+					flask={Flask1}
+					cardSimpleNameItem="Test"
+				>
+					<div className={basket.basket__content}>
+						<div className={basket.basket__content_ml}>10 ml</div>
+						<Switches
+							type="btn"
+							classNameButton={basket['basket__switch-btn']}
+							onClickMinus={() => (pt > 1 ? setPt(pt - 1) : '')}
+							onClickPlus={() => setPt(pt + 1)}
+							pt={pt}
+							onSelect={(selectedValue) => console.log(selectedValue)}
+						/>
+						<ButtonGroup buttons={btn} classGroups={basket.basket__groups} />
+					</div>
+				</Card>
+				<Card
+					typeCard="basket"
+					classNameCard={basket.basket__card}
+					bg={Bg1}
+					onClickXmark={openModal}
 					flask={Flask1}
 					cardSimpleNameItem="Test"
 				>
@@ -117,10 +158,18 @@ export default function Basket() {
 				</Card>
 			</div>
 			<ButtonGroup buttons={buttons} classGroups={basket.price} />
-			{/* <Modal isOpen={isModalOpen} onClose={closeModal}>
-				<h2>Modal Content</h2>
-				<p>This is the content of the modal.</p>
-			</Modal> */}
+			<Modal isOpen={isModalOpen} onClose={closeModal}>
+				<p className={basket.price__text}>
+					Are you sure you want to remove the item from your cart?
+				</p>
+				<div className={basket.price__input}>
+					<Input
+						type="checkbox"
+						label="Don't show again"
+						classLabel={basket.price__label}
+					/>
+				</div>
+			</Modal>
 		</>
 	);
 }

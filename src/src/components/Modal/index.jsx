@@ -1,30 +1,45 @@
-import React, { useState, useEffect, createElement } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import modal from './modal.module.scss';
-import Button from '@components/Button';
+import ButtonGroup from '@components/ButtonGroup';
 
 export default function Modal({ isOpen, onClose, onSuccess, children }) {
 	const modalRoot = document.getElementById('modal-root');
-	const modalElement = document.createElement('div');
 
-	useEffect(() => {
-		modalRoot.append(modalElement);
+    const buttons = [
+        {
+            content: "CANCEL",
+            className: modal['modal__content-cancel'],
+            onClick: onClose
+        },
+        {
+            content: "YES",
+            className: modal['modal__content-success'],
+            onClick: onSuccess
+        }
+    ]
 
-		return () => {
-			modalRoot.remove(modalElement);
-		};
-	}, [modalElement, modalRoot]);
+    useEffect(() => {
+        if (isOpen) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = 'auto';
+        }
+    
+        return () => {
+          document.body.style.overflow = 'auto';
+        };
+      }, [isOpen]);
 
 	return isOpen
 		? ReactDOM.createPortal(
 				<div className={modal.modal}>
-					<div className="modal-content">
+					<div className={modal.modal__content}>
 						{children}
-						<Button onClick={onClose} content="CANCEL" />
-						<Button onClick={onSuccess} content="YES" />
+						<ButtonGroup buttons={buttons} classGroups={modal.modal__content__groups} />
 					</div>
 				</div>,
-				modalElement
+				modalRoot
 		  )
 		: null;
 }

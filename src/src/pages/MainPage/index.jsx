@@ -23,7 +23,7 @@ export default function MainPage() {
 				}}
 				loop={true}
 				modules={[Navigation]}
-				className="mySwiper"
+				style={{paddingTop: "60px"}}
 			>
 				<SwiperSlide>
 					<SwiperCard
