@@ -31,12 +31,17 @@
 
 		&_item {
 			padding: 12px 0;
+			font-size: 29px;
 			&:nth-child(1n) {
 				width: 100%;
 				max-width: 85px;
 				padding-left: 1px;
 				padding-right: 1px;
 				text-align: center;
+
+				img {
+					margin-left: 3px;
+				}
 			}
 
 			&:nth-child(2n) {

@@ -8,6 +8,8 @@ import Icon from '@components/Icon';
 import Bg1 from '@img/bg1.jpg';
 import Bg2 from '@img/bg2.jpg';
 import Bg3 from '@img/bg3.jpg';
+import TW from '@img/t-white.svg';
+import T from '@img/t.svg';
 import Flask1 from '@img/flask 1.png';
 
 export default function CardMainList() {
@@ -17,7 +19,7 @@ export default function CardMainList() {
 
 	const btn = [
 		{
-			content: '60 T',
+			content: ['60', <Icon src={TW} img={true} />],
 			className: cardList.cardList__groups_btn,
 		},
 		{
@@ -35,7 +37,7 @@ export default function CardMainList() {
 
 	const btnAdd = [
 		{
-			content: '60 T',
+			content: ['60', <Icon src={T} img={true} />],
 			className: cardList['cardList__add_parameter_btn-t'],
 		},
 		{
@@ -75,7 +77,7 @@ export default function CardMainList() {
 									<p className={cardList.cardList__add_subtitle}>100% pure</p>
 								</span>
 								<Button
-									content={<Icon icon="fas fa-xmark" />}
+									content={<Icon icon="fa-solid fa-xmark" />}
 									className={cardList.cardList__add_close}
 									onClick={() => setAdd(false)}
 								/>

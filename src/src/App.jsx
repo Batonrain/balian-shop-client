@@ -8,7 +8,7 @@ import './App.scss';
 
 function App() {
 	const { tg } = useTelegram();
-  const location = useLocation();
+	const location = useLocation();
 
 	useEffect(() => {
 		tg.ready();
@@ -18,7 +18,11 @@ function App() {
 		<div className="App">
 			<Header />
 			<Outlet />
-			{location.pathname != '/product' ? <Footer /> : <></>}
+			{location.pathname !== '/product' && location.pathname !== '/basket' ? (
+				<Footer />
+			) : (
+				<></>
+			)}
 		</div>
 	);
 }

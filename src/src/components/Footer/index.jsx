@@ -7,7 +7,6 @@ import User from '@img/user.svg';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
-
 	const footerBtn = [
 		{
 			className: ft.footer__btn_send + ' ' + ft.footer__btn,
@@ -23,12 +22,14 @@ export default function Footer() {
 		},
 		{
 			className: ft.footer__btn_shop + ' ' + ft.footer__btn,
-			content: [
-				<Icon key="fa-cart-shopping" icon="fa-cart-shopping" />,
-				<p key="amount" className={ft['footer__btn_shop-amount']}>
-					25
-				</p>,
-			],
+			content: (
+				<Link to="basket">
+					<Icon key="fa-cart-shopping" icon="fa-cart-shopping" />
+					<p key="amount" className={ft['footer__btn_shop-amount']}>
+						25
+					</p>
+				</Link>
+			),
 		},
 	];
 

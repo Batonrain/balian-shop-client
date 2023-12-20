@@ -1,0 +1,144 @@
+@import '@scss/_variables.scss';
+
+.basket {
+	width: 98%;
+	margin: 0 10px;
+	display: grid;
+    justify-items: center;
+	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	margin-bottom: 100px;
+
+	a {
+		div {
+			max-width: 168px;
+		}
+	}
+
+	&__card {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		margin-bottom: 18px;
+		max-width: 370px;
+		flex-grow: 1;
+	}
+
+	&__content {
+		margin-top: 15px;
+		&_ml {
+			font-size: 22px;
+			font-weight: 700;
+			margin: 0;
+		}
+	}
+
+	&__switch {
+		&-btn {
+			margin-top: 10px;
+			button {
+				width: 36px;
+				height: 36px;
+			}
+
+			span {
+				margin: 0;
+				display: inline-block;
+				text-align: center;
+				width: 80px;
+			}
+		}
+	}
+
+	&__groups {
+		margin-top: 10px;
+		border: 1px solid $black;
+		max-width: 168px;
+
+		display: flex;
+		justify-content: center;
+
+		&_item {
+			font-size: $buttonText;
+			font-weight: $textFontWeight;
+			color: $white;
+			padding: 10px 0;
+
+			&:nth-child(1n) {
+				width: 84px;
+				text-align: center;
+
+				img {
+					width: 13px;
+					height: 13px;
+					margin-left: 3px;
+				}
+			}
+
+			&:nth-child(2n) {
+				width: 84px;
+				border-left: 1px solid #787878;
+			}
+		}
+	}
+}
+
+.price {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto 25px auto;
+	border: 1px solid black;
+	width: 95%;
+	max-width: 350px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&_item {
+		padding: 12px 0;
+		font-size: 29px;
+		font-weight: $textFontWeight;
+		&:nth-child(1n) {
+			width: 100%;
+			max-width: 85px;
+			padding-left: 1px;
+			padding-right: 1px;
+			text-align: center;
+
+			img {
+				margin-left: 3px;
+			}
+		}
+
+		&:nth-child(2n) {
+			max-width: 150px;
+			width: 100%;
+			padding-left: 1px;
+			padding-right: 1px;
+			border-left: 1px solid #787878;
+		}
+
+		&:nth-child(3n) {
+			color: $black;
+			width: 100%;
+			max-width: 115px;
+			background-color: $white;
+		}
+	}
+}
+
+@media (max-width: 360px) {
+	.basket {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+		&__card {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			align-items: center;
+		}
+	}
+}

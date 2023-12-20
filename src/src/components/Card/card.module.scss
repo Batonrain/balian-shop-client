@@ -1,75 +1,104 @@
 @import '@scss/_variables.scss';
 
 .card {
+	&__simple {
+		position: relative;
+		height: fit-content;
 
-    &__simple {
-        position: relative;
-        height: fit-content;
+		width: 168px;
 
-        width: 168px;
+		margin-top: 10px;
 
-        margin-top: 10px;
+		&_bg {
+			position: relative;
+			height: 180px;
+			border: 2px solid $borderCardColor;
 
-        &_bg {
-            position: relative;
-            height: 180px;
-            border: 2px solid $borderCardColor;
-        
-        img {
-            max-width: 164px;
-            height: 150px;
-        }
+			img {
+				max-width: 164px;
+				height: 150px;
+			}
 
-        &::after {
-            content: '';
-            background-color: white;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 45px;
-            border-radius: 0 0 65% 65%;
-        }
+			&::after {
+				content: '';
+				background-color: white;
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 45px;
+				border-radius: 0 0 65% 65%;
+			}
 
-        &::before {
-            content: '';
-            background-color: white;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 52px;
-            border-radius: 65% 65% 0 0;
-        }
-        }
+			&::before {
+				content: '';
+				background-color: white;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: 52px;
+				border-radius: 65% 65% 0 0;
+			}
+		}
 
-        &_flask {
-            width: 100%;
-            position: absolute;
-            top: 0;
-            display: flex;
-            justify-content: center;
-            img {
-                max-width: 80px;
-                height: 175px;
-            }
-        }
-        
-        &_text {
-            font-weight: $textFontWeight;
-            text-transform: uppercase;
-            margin-top: 10px;
+		&_flask {
+			width: 100%;
+			position: absolute;
+			top: 0;
+			display: flex;
+			justify-content: center;
+			img {
+				max-width: 80px;
+				height: 175px;
+			}
+		}
 
-            &-title {
-                font-size: $fsNameCard;
-                margin: 0;
-            }
+		&_text {
+			font-weight: $textFontWeight;
+			text-transform: uppercase;
+			margin-top: 10px;
 
-            &-subtitle {
-                font-size: $fsAverage;
-                margin: 0;
-            }
-        }
+			&_basket {
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+                align-items: start;
+                justify-content: space-between;
+			}
 
-    }
+			&-title {
+				font-size: $fsNameCard;
+				margin: 0;
+
+				&-ww {
+					word-wrap: anywhere;
+				}
+			}
+
+			&-subtitle {
+				font-size: $fsAverage;
+				margin: 0;
+			}
+		}
+
+		&_basket {
+			margin-top: 0;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			max-width: 168px;
+			margin-left: 12px;
+
+			&_remove {
+				color: $black;
+				background-color: $white;
+
+				svg {
+					width: 33px;
+					height: 33px;
+				}
+			}
+		}
+	}
 }

@@ -30,13 +30,13 @@ export default function Switches({
 			{type == 'btn' ? (
 				<div className={classNameButton}>
 					<Button
-						content={<Icon icon="fas fa-minus" />}
+						content={<Icon icon="fa-solid fa-minus" />}
 						className={switches.switches__btn}
                         onClick={onClickMinus}
 					/>
 					<span className={switches.switches__value}>{pt} PT</span>
 					<Button
-						content={<Icon icon="fas fa-plus" />}
+						content={<Icon icon="fa-solid fa-plus" />}
 						className={switches.switches__btn}
                         onClick={onClickPlus}
 					/>

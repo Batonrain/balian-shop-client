@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import SwiperCard from '@components/SwiperCard';
-import Select from '@components/Select';
 import Switches from '@components/Switches';
 import Icon from '@components/Icon';
-import Button from '@components/Button';
 import ButtonGroup from '@components/ButtonGroup';
 import Bg1 from '@img/bg1.jpg';
 import Bg2 from '@img/bg2.jpg';
 import Flask1 from '@img/flask 1.png';
 import product from './product.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import TW from '@img/t-white.svg';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -22,7 +21,7 @@ export default function Product() {
 	const options = ['10 ML', '20 ML', '30 ML', '40 ML'];
 	const buttons = [
 		{
-			content: '60 T',
+			content: ['60', <Icon src={TW} img={true} />],
 			className: product.product__price_item,
 		},
 		{
@@ -95,9 +94,7 @@ export default function Product() {
 				for skin care and aromatherapy. This oil is extracted from sandalwood
 				and has a rich woody aroma with special notes.
 			</div>
-			<div className={product.product__price}>
-				<ButtonGroup buttons={buttons} />
-			</div>
+			<ButtonGroup buttons={buttons} classGroups={product.product__price} />
 		</div>
 	);
 }

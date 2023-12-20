@@ -73,6 +73,7 @@
 			&_btn {
 				width: 100%;
 				margin-top: 10px;
+
 				&-t {
 					color: $black;
 					background-color: $white;
@@ -82,6 +83,12 @@
 					width: 55px;
 					width: 84px;
 					padding-left: 16px;
+
+					img {
+						width: 13px;
+						height: 13px;
+						margin-left: 3px;
+					}
 				}
 
 				&-currency {
@@ -169,6 +176,12 @@
 				padding-left: 1px;
 				padding-right: 1px;
 				text-align: center;
+
+				img {
+					width: 13px;
+					height: 13px;
+					margin-left: 3px;
+				}
 			}
 
 			&:nth-child(2n) {
