@@ -1,0 +1,39 @@
+@import '@scss/_variables.scss';
+
+.filtersCard {
+	display: block;
+    margin: 20px 20px 0 20px;
+
+	&:last-child {
+		margin-bottom: 200px;
+	}
+	&__name {
+		color: $black;
+		font-size: 22px;
+		font-weight: $textFontWeight;
+		text-transform: uppercase;
+		margin-bottom: 12px;
+	}
+
+	&__input {
+		display: flex;
+		flex-direction: column;
+		background: #fff;
+		padding: 20px;
+		width: 88%;
+
+		&-item {
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+			margin-bottom: 7px;
+
+			label {
+				color: $black;
+				font-size: 22px;
+				font-weight: 400;
+				margin-left: 13px;
+			}
+		}
+	}
+}

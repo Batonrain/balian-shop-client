@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SwiperCard from '@components/SwiperCard';
+import Filters from '@components/Filters';
 import Bg1 from '@img/bg1.jpg';
 import Bg2Swiper from '@img/Bg2Swiper.jpg';
 import Bg3 from '@img/bg3.jpg';
@@ -14,8 +15,31 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 
 export default function MainPage() {
+	const [open, setOpen] = useState(true);
+
+	const openFilter = () => {
+		setOpen(true);
+	};
+
+	const closeFilter = () => {
+		setOpen(false);
+	}
+
+	useEffect(() => {
+        if (open) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = 'auto';
+        }
+    
+        return () => {
+          document.body.style.overflow = 'auto';
+        };
+      }, [open]);
+
 	return (
 		<>
+			{open ? <Filters closeFilter={closeFilter} /> : <></>}
 			<Swiper
 				navigation={{
 					nextEl: '.custom-swiper-button-next',
@@ -23,7 +47,7 @@ export default function MainPage() {
 				}}
 				loop={true}
 				modules={[Navigation]}
-				style={{paddingTop: "60px"}}
+				style={{ paddingTop: '60px' }}
 			>
 				<SwiperSlide>
 					<SwiperCard
@@ -53,7 +77,7 @@ export default function MainPage() {
 					/>
 				</SwiperSlide>
 			</Swiper>
-			<Search />
+			<Search openFilter={openFilter} />
 			<CardMainList />
 		</>
 	);

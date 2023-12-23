@@ -5,8 +5,10 @@ const Input = ({
 	value,
 	placeholder = '',
 	onChange = () => {},
-  label,
-  classLabel,
+	name = '',
+	label,
+	classLabel,
+	count = '',
 	...restProps
 }) => {
 	return (
@@ -16,9 +18,11 @@ const Input = ({
 				value={value}
 				placeholder={placeholder}
 				onChange={onChange}
+				name={name}
 				{...restProps}
 			/>
-			{label ? <label className={classLabel}>{label}</label> : <></>}
+			{label && !count ? <label className={classLabel}>{label}</label> : <></>}
+			{label && count ? <label className={classLabel} data-count={count}>{label}</label> : <></>}
 		</>
 	);
 };

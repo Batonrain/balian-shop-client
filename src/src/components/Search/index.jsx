@@ -5,13 +5,14 @@ import ButtonGroup from '@components/ButtonGroup';
 import Icon from '@components/Icon';
 import Filter from '@img/filter.svg';
 
-export default function Search() {
+export default function Search({openFilter = () => {}}) {
     const btn = [
         {
             content: <Icon icon="fa-solid fa-magnifying-glass" />
         },
         {
-            content: <img src={Filter} alt="filter" />
+            content: <img src={Filter} alt="filter" />,
+            onClick: openFilter
         }
     ]
 

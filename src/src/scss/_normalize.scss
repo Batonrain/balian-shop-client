@@ -186,7 +186,13 @@ input {
 input[type='checkbox'] {
 	width: 26px;
 	height: 26px;
-  border: 2px solid rgba(0, 0, 0, 0.63); background: rgba(255, 255, 255, 0.00); 
+	border: 2px solid rgba(0, 0, 0, 0.63);
+	background: rgba(255, 255, 255, 0);
+}
+
+input[type='radio'] {
+	width: 18px;
+	height: 18px;
 }
 
 /**
@@ -287,6 +293,18 @@ textarea {
 [type='radio'] {
 	box-sizing: border-box; /* 1 */
 	padding: 0; /* 2 */
+}
+
+label {
+   width: 100%;
+}
+
+label::after {
+	content: attr(data-count);
+	color: #707070;
+	font-size: 22px;
+	font-weight: 400;
+	text-transform: uppercase;
 }
 
 /**
