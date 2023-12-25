@@ -18,7 +18,10 @@ function App() {
 		<div className="App">
 			<Header />
 			<Outlet />
-			{location.pathname !== '/product' && location.pathname !== '/basket' ? (
+			{
+			location.pathname !== '/product' &&
+			location.pathname !== '/basket' &&
+			location.pathname !== '/order' ? (
 				<Footer />
 			) : (
 				<></>

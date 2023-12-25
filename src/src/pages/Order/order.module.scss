@@ -4,6 +4,8 @@
 	padding-top: 90px;
 	width: 95%;
 	margin: 0 auto;
+	position: relative;
+
 	&__title {
 		color: $black;
 		font-size: 28px;
@@ -13,12 +15,29 @@
 		text-align: center;
 	}
 
+	&__btn {
+		width: 100%;
+
+		position: absolute;
+		bottom: -100px;
+		left: 0;
+
+		padding-bottom: 30px;
+		&-success {
+			width: 100%;
+			font-size: 30px;
+			padding: 11px 0;
+			text-transform: uppercase;
+			font-weight: $textFontWeight;
+		}
+	}
+
 	&__price {
 		margin-top: 26px;
+
 		&_text {
 			color: #000;
 			font-size: 25px;
-			font-weight: 700;
 			margin-bottom: 10px;
 
 			img {
@@ -63,6 +82,7 @@
 	&__input {
 		display: flex;
 		flex-direction: column;
+		padding-bottom: 20px;
 
 		&_check {
 			display: flex;

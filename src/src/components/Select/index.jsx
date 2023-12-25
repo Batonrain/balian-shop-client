@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import select from './select.module.scss';
 import Icon from '@components/Icon';
 import Button from '@components/Button';
@@ -12,7 +12,7 @@ export default function Select({
 	classOptions = '',
 }) {
 	const [isOpen, setIsOpen] = useState(false);
-	const [selectedOption, setSelectedOption] = useState();
+	const [selectedOption, setSelectedOption] = useState(placeholder ? '' : options[0]);
 
 	const handleToggleMenu = () => {
 		setIsOpen(!isOpen);
@@ -23,6 +23,7 @@ export default function Select({
 		setSelectedOption(selectedValue);
 		setIsOpen(false);
 	};
+
 	return (
 		<div className={select.select + ' ' + classSelect}>
 			<div className={select.select__current} onClick={handleToggleMenu}>
