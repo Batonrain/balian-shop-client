@@ -27,49 +27,44 @@ export default function Filters({ closeFilter = () => {} }) {
 		},
 	];
 
-    const inputPrice = [
+	const inputPrice = [
 		{
-			type: 'text',
-			placeholder: 'From',
-		},
-		{
-			type: 'text',
-			placeholder: 'do',
+			type: 'range',
 		},
 	];
 
-    const inputCategories = [
-        {
-            type: "checkbox",
-            label: "Organic",
-            count: 25,
-            className: filters['filters__label-count']
-        },
-        {
-            type: "checkbox",
-            label: "Inorganic",
-            count: 10,
-            className: filters['filters__label-count']
-        },
-        {
-            type: "checkbox",
-            label: "Other",
-            count: 33,
-            className: filters['filters__label-count']
-        },
-        {
-            type: "checkbox",
-            label: "Other",
-            count: 11,
-            className: filters['filters__label-count']
-        },
-        {
-            type: "checkbox",
-            label: "Other",
-            count: 12,
-            className: filters['filters__label-count']
-        }
-    ]
+	const inputCategories = [
+		{
+			type: 'checkbox',
+			label: 'Organic',
+			count: 25,
+			className: filters['filters__label-count'],
+		},
+		{
+			type: 'checkbox',
+			label: 'Inorganic',
+			count: 10,
+			className: filters['filters__label-count'],
+		},
+		{
+			type: 'checkbox',
+			label: 'Other',
+			count: 33,
+			className: filters['filters__label-count'],
+		},
+		{
+			type: 'checkbox',
+			label: 'Other',
+			count: 11,
+			className: filters['filters__label-count'],
+		},
+		{
+			type: 'checkbox',
+			label: 'Other',
+			count: 12,
+			className: filters['filters__label-count'],
+		},
+	];
 
 	return (
 		<div className={filters.filters}>
@@ -86,11 +81,11 @@ export default function Filters({ closeFilter = () => {} }) {
 				<FiltersCard nameGroup="price" input={inputPrice} />
 				<FiltersCard nameGroup="sorting" input={inputSort} />
 				<FiltersCard nameGroup="categories" input={inputCategories} />
-                <FiltersCard nameGroup="categories" input={inputCategories} />
+				<FiltersCard nameGroup="categories" input={inputCategories} />
 			</div>
-            <div className={filters.filters__apply}>
-                <Button content="APPLY" />
-            </div>
+			<div className={filters.filters__apply}>
+				<Button content="APPLY" />
+			</div>
 		</div>
 	);
 }

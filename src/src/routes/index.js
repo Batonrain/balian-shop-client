@@ -3,6 +3,7 @@ import Profile from '@pages/Profile';
 import Product from '@/pages/Product';
 import MainPage from '@/pages/MainPage';
 import Basket from '@/pages/Basket';
+import Order from '@/pages/Order';
 
 export const router = [
 	{
@@ -24,6 +25,10 @@ export const router = [
 			{
 				path: '/basket',
 				element: <Basket />,
+			},
+			{
+				path: '/order',
+				element: <Order />,
 			},
 		],
 	},

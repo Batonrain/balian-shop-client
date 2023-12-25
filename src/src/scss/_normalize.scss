@@ -183,6 +183,11 @@ input {
 	overflow: visible;
 }
 
+textarea:focus,
+input:focus {
+	outline: none;
+}
+
 input[type='checkbox'] {
 	width: 26px;
 	height: 26px;
@@ -296,7 +301,7 @@ textarea {
 }
 
 label {
-   width: 100%;
+	width: 100%;
 }
 
 label::after {

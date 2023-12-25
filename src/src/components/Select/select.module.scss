@@ -1,14 +1,23 @@
 .select {
 	position: relative;
+
+	&__placeholder {
+		margin: 0;
+		color: #6b6b6b;
+		font-size: 26px;
+		font-weight: 400;
+	}
+
 	&__current {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
+		justify-content: space-between;
 
-        button {
-            background-color: transparent;
-            color: black;
-        }
+		button {
+			background-color: transparent;
+			color: black;
+		}
 
 		&_value {
 			font-size: 24px;

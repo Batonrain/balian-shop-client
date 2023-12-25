@@ -15,7 +15,7 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 
 export default function MainPage() {
-	const [open, setOpen] = useState(true);
+	const [open, setOpen] = useState(false);
 
 	const openFilter = () => {
 		setOpen(true);
