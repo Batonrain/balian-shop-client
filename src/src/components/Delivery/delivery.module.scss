@@ -1,0 +1,53 @@
+.delivery {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	padding: 4px 0;
+	border-bottom: 1px solid #dcdcdc;
+
+	img {
+		margin-left: 17px;
+	}
+	
+	&__item {
+		&_description {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			width: 100%;
+			padding: 0 20px 0 10px;
+			p {
+				margin: 0;
+			}
+
+			&-number {
+				color: #1b1b1b;
+				font-size: 25px;
+				font-weight: 400;
+			}
+
+			&-status {
+				color: #898989;
+				font-size: 17px;
+				font-weight: 400;
+			}
+
+			&-date {
+				color: #898989;
+				font-size: 17px;
+				font-weight: 400;
+			}
+
+			&-price {
+				color: #1b1b1b;
+				font-size: 25px;
+				font-weight: 400;
+			}
+		}
+	}
+}
+
+.text-column {
+	display: flex;
+	flex-direction: column;
+}
