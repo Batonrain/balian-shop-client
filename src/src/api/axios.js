@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const httpClient = axios.create({
-    baseURL: 'https://balianshop.com:8000/api'
+    baseURL: 'https://localhost:7043/api'
 })
 
 export default httpClient 
