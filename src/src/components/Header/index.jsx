@@ -20,7 +20,7 @@ export default function Header({ profile=false }) {
       .catch(e => console.log(e.toJSON()))
   }, [])
 
-  console.log(photo)
+  // console.log(photo)
 
   return (
     <header className={styles.header}>

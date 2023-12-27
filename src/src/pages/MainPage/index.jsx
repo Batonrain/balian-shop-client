@@ -16,7 +16,7 @@ import { Navigation } from 'swiper/modules';
 
 export default function MainPage() {
 	const [open, setOpen] = useState(false);
-
+	
 	const openFilter = () => {
 		setOpen(true);
 	};
@@ -26,16 +26,16 @@ export default function MainPage() {
 	}
 
 	useEffect(() => {
-        if (open) {
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = 'auto';
-        }
-    
-        return () => {
-          document.body.style.overflow = 'auto';
-        };
-      }, [open]);
+		if (open) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = 'auto';
+		}
+
+		return () => {
+			document.body.style.overflow = 'auto';
+		};
+	}, [open]);
 
 	return (
 		<>
