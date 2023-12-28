@@ -15,7 +15,6 @@ export default function CardMainList() {
 				getCards()
 					.then((response) => setCards(response.data))
 					.catch(e => console.log(e.toJSON()))
-				//console.log(response.data)
 			} catch (error) {
 				console.error("Ошибка при получении карточек товаров:", error);
 			}
@@ -27,7 +26,7 @@ export default function CardMainList() {
 	return (
 		<div className={cardList.cardList}>
 			{cards.map(card => (
-				<SimpleCard backgroundImage={Bg3} flaskImage={Flask1} title={card.name} classNameCard={cardList.cardList__item}>
+				<SimpleCard backgroundImage={Bg3} flaskImage={Flask1} title={card.name} sizesAndPrices={card.sizeAndPrice} classNameCard={cardList.cardList__item}>
 				</SimpleCard>
 			))}
 		</div>

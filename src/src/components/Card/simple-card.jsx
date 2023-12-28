@@ -15,10 +15,11 @@ import TW from '@img/t-white.svg';
 import T from '@img/t.svg';
 import Flask1 from '@img/flask 1.png';
 
-export function SimpleCard({ backgroundImage, flaskImage, title, children, classNameCard }) {
+export function SimpleCard({ backgroundImage, flaskImage, title, sizesAndPrices, children, classNameCard }) {
     const [add, setAdd] = useState(false);
     const [pt, setPt] = useState(1);
-    const options = ['10 ML', '20 ML', '30 ML', '40 ML'];
+	const options = sizesAndPrices.map(product => product.size);
+    // const options = ['10 ML', '20 ML', '30 ML', '40 ML'];
 
     const btn = [
         {
