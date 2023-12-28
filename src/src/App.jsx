@@ -21,6 +21,7 @@ function App() {
 			{
 			location.pathname !== '/product' &&
 			location.pathname !== '/basket' &&
+			location.pathname !== '/profile' &&
 			location.pathname !== '/order' ? (
 				<Footer />
 			) : (

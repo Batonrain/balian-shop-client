@@ -50,7 +50,12 @@
 	&__select {
 		border: 1px solid #000;
 		background: #fff;
-		padding: 13px 27px;
+		padding-left: 27px;
+		padding-right: 27px;
+		height: 55px;
+
+		display: flex;
+		align-items: center;
 
 		margin-bottom: 20px;
 
@@ -71,6 +76,7 @@
 		&_arrow {
 			width: 25px;
 			height: 25px;
+			margin-left: auto;
 
 			svg {
 				width: 25px;
@@ -99,7 +105,7 @@
 
 		input {
 			margin-bottom: 20px;
-			padding: 3px 0;
+			height: 53px;
 			padding-left: 27px;
 
 			font-size: 26px;
