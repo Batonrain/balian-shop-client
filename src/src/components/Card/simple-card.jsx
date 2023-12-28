@@ -18,6 +18,18 @@ import Flask1 from '@img/flask 1.png';
 export function SimpleCard({ backgroundImage, flaskImage, title, sizesAndPrices, children, classNameCard }) {
     const [add, setAdd] = useState(false);
     const [pt, setPt] = useState(1);
+	const [selectedSize, setSelectedSize] = useState(sizesAndPrices[0].size); // Начальное значение - первый размер
+    const [selectedPrice, setSelectedPrice] = useState(sizesAndPrices[0].priceInRub); // Начальная цена
+
+	const onSelectSize = (selectedValue) => {
+        console.log(selectedValue);
+        const selectedProduct = sizesAndPrices.find(product => product.size === selectedValue);
+        if (selectedProduct) {
+            setSelectedSize(selectedProduct.size);
+            setSelectedPrice(selectedProduct.priceInRub);
+        }
+    };
+
 	const options = sizesAndPrices.map(product => product.size);
     // const options = ['10 ML', '20 ML', '30 ML', '40 ML'];
 
@@ -40,22 +52,22 @@ export function SimpleCard({ backgroundImage, flaskImage, title, sizesAndPrices,
     ];
 
     const btnAdd = [
-		{
-			content: ['60', <Icon src={T} img={true} />],
-			className: cardList['cardList__add_parameter_btn-t'],
-		},
-		{
-			content: '25k Rp',
-			className: cardList['cardList__add_parameter_btn-currency'],
-		},
-		{
-			content: 'ADD TO CART',
-			className: cardList['cardList__add_parameter_btn-add'],
-			onClick: () => {
-				setAdd(true);
-			},
-		},
-	];
+        {
+            content: [pt, <Icon src={T} img={true} />],
+            className: cardList['cardList__add_parameter_btn-t'],
+        },
+        {
+            content: `${selectedPrice} Rp`,
+            className: cardList['cardList__add_parameter_btn-currency'],
+        },
+        {
+            content: 'ADD TO CART',
+            className: cardList['cardList__add_parameter_btn-add'],
+            onClick: () => {
+                setAdd(true);
+            },
+        },
+    ];
 
 
     return (
@@ -104,7 +116,7 @@ export function SimpleCard({ backgroundImage, flaskImage, title, sizesAndPrices,
 								<Switches
 									options={options}
 									classNameSelect={cardList['cardList__add_switch-select']}
-									onSelect={(selectedValue) => console.log(selectedValue)}
+									onSelect={onSelectSize}
 								/>
 								<Switches
 									type="btn"
