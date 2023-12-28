@@ -62,6 +62,7 @@
 	}
 
 	&__order {
+		margin-bottom: 120px;
 		&_title {
 			color: #000;
 			font-size: 25px;
@@ -85,7 +86,7 @@
 	&__btn {
 		width: 100%;
 
-		position: absolute;
+		position: fixed;
 		bottom: 0;
 		left: 0;
 

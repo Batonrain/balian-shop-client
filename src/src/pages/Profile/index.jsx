@@ -16,7 +16,8 @@ export default function Profile() {
 			status: 'delivered',
 			number: '№ 39875 4890',
 			date: 'from 03.11',
-			prise: '105k Rp',
+			prise: '105',
+			currency: 'ton'
 		},
 	];
 
@@ -61,6 +62,7 @@ export default function Profile() {
 							status={item.status}
 							date={item.date}
 							number={item.number}
+							currency={item.currency}
 						/>
 					))}
 				</div>
