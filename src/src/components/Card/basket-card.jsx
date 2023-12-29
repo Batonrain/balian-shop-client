@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import card from './card.module.scss';
 import { Link } from 'react-router-dom';
 import Button from '@components/Button';
 import Icon from '@components/Icon';
-import basket from './basket.module.scss';
+import basket from '@pages/Basket/basket.module.scss';
 import Switches from '@components/Switches';
 import ButtonGroup from '@components/ButtonGroup';
 import TW from '@img/t-white.svg';
@@ -50,7 +50,7 @@ export function BasketCard({ backgroundImage, flaskImage, title, product, childr
         </div>
         {children}
         <div className={basket.basket__content}>
-          <div className={basket.basket__content_ml}>10 ml</div>
+          <div className={basket.basket__content_ml}>{product.size}</div>
           <Switches
             type="btn"
             classNameButton={basket['basket__switch-btn']}

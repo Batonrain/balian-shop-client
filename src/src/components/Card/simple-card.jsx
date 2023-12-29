@@ -1,5 +1,5 @@
 import card  from './card.module.scss';
-import cardList from './card-list.module.scss'
+import cardList from '@pages/CardMainList/cardMainList.module.scss'
 import { Link } from 'react-router-dom';
 import Button from '@components/Button';
 import Icon from '@components/Icon';

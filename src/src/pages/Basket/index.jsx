@@ -52,6 +52,8 @@ export default function Basket() {
 		},
 	];
 
+	console.log(basket.basket__card)
+
 	return (
 		<>
 			<div className={basket.basket}>
