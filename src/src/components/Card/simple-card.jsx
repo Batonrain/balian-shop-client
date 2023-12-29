@@ -14,12 +14,25 @@ import Bg3 from '@img/bg3.jpg';
 import TW from '@img/t-white.svg';
 import T from '@img/t.svg';
 import Flask1 from '@img/flask 1.png';
+import { useCart } from '@contexts/cart-context';
 
 export function SimpleCard({ backgroundImage, flaskImage, title, sizesAndPrices, children, classNameCard }) {
     const [add, setAdd] = useState(false);
     const [pt, setPt] = useState(1);
 	const [selectedSize, setSelectedSize] = useState(sizesAndPrices[0].size); // Начальное значение - первый размер
     const [selectedPrice, setSelectedPrice] = useState(sizesAndPrices[0].priceInRub); // Начальная цена
+
+	const { addToCart } = useCart();
+
+	const handleAddToCart = () => {
+		const product = {
+			name: title,
+			size: selectedSize,
+			count: pt,
+			pricePerItem: selectedPrice,
+		}
+		addToCart(product);
+	  };
 
 	const onSelectSize = (selectedValue) => {
         console.log(selectedValue);
@@ -31,15 +44,14 @@ export function SimpleCard({ backgroundImage, flaskImage, title, sizesAndPrices,
     };
 
 	const options = sizesAndPrices.map(product => product.size);
-    // const options = ['10 ML', '20 ML', '30 ML', '40 ML'];
 
     const btn = [
         {
-            content: ['60', <Icon src={TW} img={true} />],
+            content: ['1', <Icon src={TW} img={true} />],
             className: cardList.cardList__groups_btn,
         },
         {
-            content: '25k Rp',
+            content: `${selectedPrice} Rub`,
             className: cardList.cardList__groups_btn,
         },
         {
@@ -57,14 +69,14 @@ export function SimpleCard({ backgroundImage, flaskImage, title, sizesAndPrices,
             className: cardList['cardList__add_parameter_btn-t'],
         },
         {
-            content: `${selectedPrice} Rp`,
+            content: `${selectedPrice} Rub`,
             className: cardList['cardList__add_parameter_btn-currency'],
         },
         {
             content: 'ADD TO CART',
             className: cardList['cardList__add_parameter_btn-add'],
             onClick: () => {
-                setAdd(true);
+                handleAddToCart();
             },
         },
     ];

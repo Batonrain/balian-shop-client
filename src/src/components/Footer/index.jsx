@@ -5,8 +5,11 @@ import Icon from '@components/Icon';
 import Send from '@img/send.svg';
 import User from '@img/user.svg';
 import { Link } from 'react-router-dom';
+import { useCart } from '@contexts/cart-context';
 
 export default function Footer() {
+	const { cartItems } = useCart();
+
 	const footerBtn = [
 		{
 			className: ft.footer__btn_send + ' ' + ft.footer__btn,
@@ -26,7 +29,7 @@ export default function Footer() {
 				<Link to="basket">
 					<Icon key="fa-cart-shopping" icon="fa-cart-shopping" />
 					<p key="amount" className={ft['footer__btn_shop-amount']}>
-						25
+						{cartItems.length}
 					</p>
 				</Link>
 			),

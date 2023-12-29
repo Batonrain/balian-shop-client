@@ -5,6 +5,7 @@ import Footer from '@components/Footer';
 import Header from '@components/Header';
 
 import './App.scss';
+import { CartProvider } from '@contexts/cart-context';
 
 function App() {
 	const { tg } = useTelegram();
@@ -15,19 +16,21 @@ function App() {
 	}, [tg]);
 
 	return (
-		<div className="App">
-			<Header />
-			<Outlet />
-			{
-			location.pathname !== '/product' &&
-			location.pathname !== '/basket' &&
-			location.pathname !== '/profile' &&
-			location.pathname !== '/order' ? (
-				<Footer />
-			) : (
-				<></>
-			)}
-		</div>
+		<CartProvider>
+			<div className="App">
+				<Header />
+				<Outlet />
+				{
+					location.pathname !== '/product' &&
+						location.pathname !== '/basket' &&
+						location.pathname !== '/profile' &&
+						location.pathname !== '/order' ? (
+						<Footer />
+					) : (
+						<></>
+					)}
+			</div>
+		</CartProvider>
 	);
 }
 
