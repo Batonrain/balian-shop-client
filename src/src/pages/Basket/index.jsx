@@ -6,12 +6,16 @@ import ButtonGroup from '@components/ButtonGroup';
 import Modal from '@components/Modal';
 import Input from '@components/Input';
 import Bg1 from '@img/bg1.jpg';
+import Bg3 from '@img/bg3.jpg';
 import TW from '@img/t-white.svg';
 import Flask1 from '@img/flask 1.png';
 import basket from './basket.module.scss';
+import { useCart } from '@contexts/cart-context';
+import { BasketCard } from '@components/Card/basket-card';
 
 export default function Basket() {
 	const [pt, setPt] = useState(1);
+	const { cartItems, removeFromCart } = useCart();
 	const btn = [
 		{
 			content: ['60', <Icon src={TW} img={true} />],
@@ -51,6 +55,15 @@ export default function Basket() {
 	return (
 		<>
 			<div className={basket.basket}>
+				{cartItems.map(item => (
+					<BasketCard 
+						backgroundImage={Bg3} 
+						flaskImage={Flask1} 
+						title={item.name}
+						product={item}
+						onClickXmark={openModal}
+						classNameCard={basket.basket__card} />
+				))}
 				<Card
 					typeCard="basket"
 					classNameCard={basket.basket__card}
