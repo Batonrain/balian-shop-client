@@ -15,9 +15,10 @@ import { BasketCard } from '@components/Card/basket-card';
 
 export default function Basket() {
 	const [pt, setPt] = useState(1);
-	const { cartItems, removeFromCart, getCartTotal } = useCart();
+	const { cartItems, removeFromCart, getCartTotal, getCartItems } = useCart();
 	const total = getCartTotal();
-	console.log(total)
+	const items = getCartItems();
+	console.log(items)
 	const btn = [
 		{
 			content: ['60', <Icon src={TW} img={true} />],

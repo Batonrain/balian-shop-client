@@ -26,7 +26,7 @@ export default function CardMainList() {
 	return (
 		<div className={cardList.cardList}>
 			{cards.map(card => (
-				<SimpleCard backgroundImage={Bg3} flaskImage={Flask1} title={card.name} sizesAndPrices={card.sizeAndPrice} classNameCard={cardList.cardList__item}>
+				<SimpleCard cardInfo={card} backgroundImage={Bg3} flaskImage={Flask1} sizesAndPrices={card.sizeAndPrice} classNameCard={cardList.cardList__item}>
 				</SimpleCard>
 			))}
 		</div>

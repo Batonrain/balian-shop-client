@@ -16,34 +16,34 @@ import T from '@img/t.svg';
 import Flask1 from '@img/flask 1.png';
 import { useCart } from '@contexts/cart-context';
 
-export function SimpleCard({ backgroundImage, flaskImage, title, sizesAndPrices, children, classNameCard }) {
+export function SimpleCard({ backgroundImage, flaskImage, classNameCard, cardInfo }) {
     const [add, setAdd] = useState(false);
     const [pt, setPt] = useState(1);
-	const [selectedSize, setSelectedSize] = useState(sizesAndPrices[0].size); // Начальное значение - первый размер
-    const [selectedPrice, setSelectedPrice] = useState(sizesAndPrices[0].priceInRub); // Начальная цена
+	const [selectedSize, setSelectedSize] = useState(cardInfo.sizeAndPrice[0].size); // Начальное значение - первый размер
+    const [selectedPrice, setSelectedPrice] = useState(cardInfo.sizeAndPrice[0].priceInRub); // Начальная цена
 
-	const { addToCart } = useCart();
+	const { saveCartItems } = useCart();
 
 	const handleAddToCart = () => {
 		const product = {
-			name: title,
+			name: cardInfo.name,
 			size: selectedSize,
 			count: pt,
 			pricePerItem: selectedPrice,
 		}
-		addToCart(product);
+		saveCartItems(product);
 	  };
 
 	const onSelectSize = (selectedValue) => {
         console.log(selectedValue);
-        const selectedProduct = sizesAndPrices.find(product => product.size === selectedValue);
+        const selectedProduct = cardInfo.sizeAndPrice.find(product => product.size === selectedValue);
         if (selectedProduct) {
             setSelectedSize(selectedProduct.size);
             setSelectedPrice(selectedProduct.priceInRub);
         }
     };
 
-	const options = sizesAndPrices.map(product => product.size);
+	const options = cardInfo.sizeAndPrice.map(product => product.size);
 
     const btn = [
         {
@@ -98,11 +98,10 @@ export function SimpleCard({ backgroundImage, flaskImage, title, sizesAndPrices,
             </Link>
             <div className={card.card__simple_text}>
                 <p className={card['card__simple_text-title']}>
-                    {title}
+                    {cardInfo.name}
                 </p>
                 <p className={card['card__simple_text-subtitle']}>100% pure</p>
             </div>
-            {children}
             <ButtonGroup buttons={btn} classGroups={cardList.cardList__groups} />
             <div
 					key="test"
