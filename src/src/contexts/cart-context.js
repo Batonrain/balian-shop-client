@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
 const CartContext = createContext();
 
@@ -7,32 +7,30 @@ export const useCart = () => useContext(CartContext);
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
-  const addToCart = (item) => {
-    setCartItems(prevItems => [...prevItems, item]);
-    localStorage.setItem('cart', JSON.stringify(item));
-  };
+  useEffect(() => {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      setCartItems(JSON.parse(savedCart));
+    }
+  }, []);
 
   const saveCartItems = (newItem) => {
-    // Получаем текущий список товаров из localStorage
     const savedCart = localStorage.getItem('cart');
-    const cartItems = savedCart ? JSON.parse(savedCart) : [];
+    const cartItems = savedCart ? JSON.parse(localStorage.getItem('cart')) : [];
+    console.log(cartItems)
   
-    // Проверяем, содержится ли уже новый товар в корзине
-    const existingItemIndex = cartItems.findIndex(item => item.id === newItem.id);
+    const existingItemIndex = cartItems.findIndex(item => item.id === newItem.id && item.size === newItem.size);
   
-    // Если товар уже есть, увеличиваем его количество
     if (existingItemIndex > -1) {
-      cartItems[existingItemIndex].quantity += newItem.quantity; // Предполагается, что у товаров есть свойство quantity
+      cartItems[existingItemIndex].count += newItem.count;
     } else {
-      // Если товара еще нет, добавляем его в список
       cartItems.push(newItem);
     }
   
-    // Сохраняем обновленный список товаров обратно в localStorage
     localStorage.setItem('cart', JSON.stringify(cartItems));
+    setCartItems(cartItems);
   };
   
-
   const getCartItems = () => {
     const savedCart = localStorage.getItem('cart');
     return savedCart ? JSON.parse(savedCart) : [];
@@ -53,7 +51,7 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart, getCartTotal, getCartItems, saveCartItems }}>
+    <CartContext.Provider value={{ cartItems, removeFromCart, clearCart, getCartTotal, getCartItems, saveCartItems }}>
       {children}
     </CartContext.Provider>
   );

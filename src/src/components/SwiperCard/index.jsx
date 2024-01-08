@@ -30,8 +30,6 @@ const SwiperCard = ({
 		},
 	];
 
-	console.log(customBtnSwiper);
-
 	return (
 		<div className={styles.swiper + ' ' + classContainer}>
 			{slogan ? (

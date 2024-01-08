@@ -18,28 +18,31 @@ import { useCart } from '@contexts/cart-context';
 
 export function SimpleCard({ backgroundImage, flaskImage, classNameCard, cardInfo }) {
     const [add, setAdd] = useState(false);
-    const [pt, setPt] = useState(1);
+    const [count, setPt] = useState(1);
 	const [selectedSize, setSelectedSize] = useState(cardInfo.sizeAndPrice[0].size); // Начальное значение - первый размер
-    const [selectedPrice, setSelectedPrice] = useState(cardInfo.sizeAndPrice[0].priceInRub); // Начальная цена
-
+    const [selectedPrice, setSelectedPrice] = useState(cardInfo.sizeAndPrice[0].priceInRub);
+    const [selectedPriceInUsdt, setSelectedUsdtPrice] = useState(cardInfo.sizeAndPrice[0].priceInUsdt);
+    
 	const { saveCartItems } = useCart();
 
 	const handleAddToCart = () => {
 		const product = {
+            id: cardInfo.id,
 			name: cardInfo.name,
 			size: selectedSize,
-			count: pt,
-			pricePerItem: selectedPrice,
+			count: count,
+			priceInRub: selectedPrice,
+            priceInUsdt: selectedPriceInUsdt
 		}
 		saveCartItems(product);
 	  };
 
 	const onSelectSize = (selectedValue) => {
-        console.log(selectedValue);
         const selectedProduct = cardInfo.sizeAndPrice.find(product => product.size === selectedValue);
         if (selectedProduct) {
             setSelectedSize(selectedProduct.size);
             setSelectedPrice(selectedProduct.priceInRub);
+            setSelectedUsdtPrice(selectedProduct.priceInUsdt);
         }
     };
 
@@ -47,7 +50,7 @@ export function SimpleCard({ backgroundImage, flaskImage, classNameCard, cardInf
 
     const btn = [
         {
-            content: ['1', <Icon src={TW} img={true} />],
+            content: [`${selectedPriceInUsdt}`, <Icon src={TW} img={true} />],
             className: cardList.cardList__groups_btn,
         },
         {
@@ -65,7 +68,7 @@ export function SimpleCard({ backgroundImage, flaskImage, classNameCard, cardInf
 
     const btnAdd = [
         {
-            content: [pt, <Icon src={T} img={true} />],
+            content: [selectedPriceInUsdt, <Icon src={T} img={true} />],
             className: cardList['cardList__add_parameter_btn-t'],
         },
         {
@@ -114,7 +117,7 @@ export function SimpleCard({ backgroundImage, flaskImage, classNameCard, cardInf
 						<div className={cardList.cardList__add_parameter_main}>
 							<div className={cardList.cardList__add_up}>
 								<span className={cardList['cardList__add_up-text']}>
-									<p className={cardList.cardList__add_title}>test</p>
+									<p className={cardList.cardList__add_title}>{cardInfo.name}</p>
 									<p className={cardList.cardList__add_subtitle}>100% pure</p>
 								</span>
 								<Button
@@ -132,9 +135,9 @@ export function SimpleCard({ backgroundImage, flaskImage, classNameCard, cardInf
 								<Switches
 									type="btn"
 									classNameButton={cardList['cardList__add_switch-btn']}
-									onClickMinus={() => (pt > 1 ? setPt(pt - 1) : '')}
-									onClickPlus={() => setPt(pt + 1)}
-									pt={pt}
+									onClickMinus={() => (count > 1 ? setPt(count - 1) : '')}
+									onClickPlus={() => setPt(count + 1)}
+									pt={count}
 									onSelect={(selectedValue) => console.log(selectedValue)}
 								/>
 							</div>
